@@ -78,7 +78,7 @@ function kakaoShare() {
         content: {
         title: '수진🤍웅 결혼합니다.',
         description: '2025.11.02\n13시 20분 웨스턴베니비스 신도림',
-        imageUrl: 'https://raw.githubusercontent.com/wj-weddinglog/wj-weddinglog.github.io/refs/heads/main/assets/img/main.jpg',
+        imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/main.jpg?raw=true',
         link: {
             mobileWebUrl: 'https://wj-weddinglog.github.io//#!',
             webUrl: 'https://wj-weddinglog.github.io//#!',
