@@ -6,7 +6,7 @@
 
 // 링크 복사
 function copyLink(){
-	var url = 'https://comgongnuna.github.io/';
+	var url = 'https://wj-weddinglog.github.io/';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = url;
@@ -18,64 +18,64 @@ function copyLink(){
 
 // 신부 계좌번호 복사
 function brideAccountNumber(){
-	var bride_account = '00000000 카카오뱅크';
+	var bride_account = '1002-931-309185 우리은행';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = bride_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("신부의 계좌번호가 복사되었습니다.\n00000000 카카오뱅크")
+	alert("신부의 계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
 }
 
 // 신랑 계좌번호 복사
 function groomAccountNumber(){
-	var groom_account = '00000000 카카오뱅크';
+	var groom_account = '1002-931-309185 우리은행';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = groom_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("신랑의 계좌번호가 복사되었습니다.\n00000000 카카오뱅크")
+	alert("신랑의 계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
 }
 
 // 아버님 계좌번호 복사 
 function groomsFatherAccountNumber(){
-    var grooms_father_account = '00000000 국민은행';
+    var grooms_father_account = '1002-931-309185 우리은행';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = grooms_father_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n00000000 국민은행")
+	alert("계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
 }
 
 
 // 카카오톡 공유하기
 function kakaoShare() {
-    Kakao.init('YOUR APP KEY');
+    Kakao.init('ad4dbad813285bef96fa2897dcc23fae');
     // SDK 초기화 여부를 판단합니다.
     Kakao.isInitialized();
     //console.log(Kakao.isInitialized());
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-        title: '재윤🤍영석 결혼합니다.',
-        description: '2024.03.01\n11시 30분 빌라드지디 청담',
-        imageUrl: 'https://github.com/jaeyun95/jaeyun95.github.io/blob/main/assets/img/main.jpg?raw=true',
+        title: '수진🤍웅 결혼합니다.',
+        description: '2025.11.02\n13시 20분 웨스턴베니비스 신도림',
+        imageUrl: 'https://raw.githubusercontent.com/wj-weddinglog/wj-weddinglog.github.io/refs/heads/main/assets/img/main.jpg',
         link: {
-            mobileWebUrl: 'https://comgongnuna.github.io/#!',
-            webUrl: 'https://comgongnuna.github.io/#!',
+            mobileWebUrl: 'https://wj-weddinglog.github.io//#!',
+            webUrl: 'https://wj-weddinglog.github.io//#!',
         },
         },
         buttons: [
         {
             title: '모바일 청첩장 보기',
             link: {
-            mobileWebUrl: 'https://comgongnuna.github.io/#!',
-            webUrl: 'https://comgongnuna.github.io/#!',
+            mobileWebUrl: 'https://wj-weddinglog.github.io//#!',
+            webUrl: 'https://wj-weddinglog.github.io//#!',
             },
         },
         ],
