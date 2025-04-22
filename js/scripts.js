@@ -28,6 +28,20 @@ function brideAccountNumber(){
 	alert("신부의 계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
 }
 
+// 신부아버님 계좌번호 복사 
+function brideFatherAccountNumber(){
+    var bride_father_account = '1002-931-309185 우리은행';
+	var textarea = document.createElement("textarea");
+	document.body.appendChild(textarea);
+	textarea.value = bride_father_account;
+	textarea.select();
+	document.execCommand("copy");
+	document.body.removeChild(textarea);
+	alert("계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
+}
+
+
+
 // 신랑 계좌번호 복사
 function groomAccountNumber(){
 	var groom_account = '1002-931-309185 우리은행';
@@ -40,7 +54,7 @@ function groomAccountNumber(){
 	alert("신랑의 계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
 }
 
-// 아버님 계좌번호 복사 
+// 신랑아버님 계좌번호 복사 
 function groomsFatherAccountNumber(){
     var grooms_father_account = '1002-931-309185 우리은행';
 	var textarea = document.createElement("textarea");
