@@ -169,4 +169,11 @@ function updateTimer() {
     updateDisplay(diffDays, days, hours, minutes, seconds);
   }
   
-  setInterval(updateTimer, 1000);  
+  setInterval(updateTimer, 1000);
+
+// BGM
+document.getElementById('playMusicBtn').addEventListener('click', function() {
+    var audio = document.getElementById('bgm');
+    audio.play();
+    this.style.display = 'none'; // 버튼 숨기기
+});
