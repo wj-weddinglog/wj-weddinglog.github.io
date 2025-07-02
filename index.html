@@ -178,7 +178,29 @@
                 <div class="content-section-heading text-center">
                     <p style="font-family: 'Song Myung', serif; font-size: 25px; font-weight: bold;">갤러리</p>
                 </div>
-                <div id="gallery-area" class="row gx-0 justify-content-center"></div>
+                <div class="slideshow-container">
+                    <div class="mySlides gfade">
+                        <img src="assets/img/gallery/1.jpg" style="width:100%" alt="갤러리 이미지 1">
+                    </div>
+                    <div class="mySlides gfade">
+                        <img src="assets/img/gallery/2.jpg" style="width:100%" alt="갤러리 이미지 2">
+                    </div>
+                    <div class="mySlides gfade">
+                        <img src="assets/img/gallery/3.jpg" style="width:100%" alt="갤러리 이미지 3">
+                    </div>
+
+                    <!-- 이전/다음 버튼 -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <br>
+                    <!-- 하단 점 네비게이션 -->
+                    <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+
                 <!--div class="row gx-0 justify-content-center">
                     <div class="col-lg-6">
                         <a class="portfolio-item" href="pages/studio.html">
@@ -286,15 +308,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- Gallery -->
-        <script>
-            $("#gallery-area").load("pages/gallery.html", function() {
-                // gallery.html이 완전히 로드된 후 슬라이드 함수 초기화
-                if (typeof showSlides === "function") {
-                showSlides(1);
-                }
-            });
-        </script>
     </body>
         
         

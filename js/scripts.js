@@ -240,6 +240,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 갤러리
 let slideIndex = 1;
+showSlides(slideIndex);
+
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
@@ -264,4 +266,4 @@ function showSlides(n) {
 }
 
 // 자동 슬라이드 (원하면 아래 주석 해제)
-// setInterval(() => { plusSlides(1); }, 4000);
+setInterval(() => { plusSlides(1); }, 5000);

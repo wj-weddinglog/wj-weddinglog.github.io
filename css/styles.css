@@ -11329,8 +11329,11 @@ a.no-style {
 /* 갤러리 */
 .slideshow-container {
   position: relative;
-  max-width: 600px;
-  margin: auto;
+  max-width: 500px;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  background: #fff;
 }
 
 .mySlides {
@@ -11374,10 +11377,12 @@ a.no-style {
   display: inline-block;
   transition: background-color 0.3s;
 }
-
+.active, .dot:hover {
+  background-color: #c97c63;
+}
 .gfade {
   animation-name: gfade;
-  animation-duration: 0.8s;
+  animation-duration: 0.7s;
 }
 @keyframes gfade {
   from {opacity: .4}
