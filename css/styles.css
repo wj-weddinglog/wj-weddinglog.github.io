@@ -11324,3 +11324,62 @@ a.no-style {
   color: #de6c6c;
   font-weight: 500;
 }
+
+
+/* 갤러리 */
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 12px;
+  margin-top: -22px;
+  color: #c97c63;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: rgba(255,255,255,0.6);
+  transition: background 0.2s;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background: #f6ede8;
+}
+.dot {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  margin: 0 2px;
+  background-color: #e2d8d2;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.gfade {
+  animation-name: gfade;
+  animation-duration: 0.8s;
+}
+@keyframes gfade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
