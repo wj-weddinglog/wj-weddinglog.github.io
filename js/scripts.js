@@ -145,3 +145,28 @@ function toggleFoldable3() {
         // 추가로 접힌 상태에서 수행할 동작 추가 가능
     }
 }
+
+
+// 날짜 카운트다운/카운트업
+const targetDate = new Date('2025-11-02T13:20:00+09:00');
+function updateTimer() {
+    const now = new Date();
+    const diff = targetDate - now;
+    
+    // 디데이 계산
+    const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+    // 경과시간 절대값 계산
+    const absDiff = Math.abs(diff);
+    
+    // 시간 요소 분해
+    const days = Math.floor(absDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((absDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((absDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((absDiff % (1000 * 60)) / 1000);
+  
+    // 디스플레이 업데이트
+    updateDisplay(diffDays, days, hours, minutes, seconds);
+  }
+  
+  setInterval(updateTimer, 1000);  
