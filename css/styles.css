@@ -94,6 +94,7 @@
 
 body {
   margin: 0;
+  padding: 1rem;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -11182,7 +11183,7 @@ a.no-style {
 
 /* 달력&디데이 */
 .wedding-info {
-  max-width: 420px;
+  max-width: 40rem;
   margin: 40px auto;
   font-family: 'Noto Sans KR', sans-serif;
   color: #444;
@@ -11330,7 +11331,7 @@ a.no-style {
 .slideshow-container {
   position: relative;
   max-width: 500px;
-  margin: 30px auto;
+  margin: 30px auto 10px auto;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   background: #fff;
@@ -11367,24 +11368,35 @@ a.no-style {
 .prev:hover, .next:hover {
   background: #f6ede8;
 }
-.dot {
+
+.gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px auto 20px auto;
+  max-width: 500px;
+}
+.thumbnail {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.5;
   cursor: pointer;
-  height: 14px;
-  width: 14px;
-  margin: 0 2px;
-  background-color: #e2d8d2;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s;
+  border: 2px solid transparent;
+  transition: opacity 0.3s, border 0.3s;
 }
-.active, .dot:hover {
-  background-color: #c97c63;
+.thumbnail.active {
+  opacity: 1;
+  border: 2px solid #c97c63;
 }
-.gfade {
-  animation-name: gfade;
-  animation-duration: 0.7s;
-}
-@keyframes gfade {
-  from {opacity: .4}
-  to {opacity: 1}
+
+@media (max-width: 600px) {
+  .slideshow-container, .gallery-thumbnails {
+    max-width: 100%;
+  }
+  .thumbnail {
+    width: 50px;
+    height: 36px;
+  }
 }
