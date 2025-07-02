@@ -53,45 +53,68 @@
                             늘 서로를 바라보며 밝고 행복하게 살도록 노력하겠습니다. 
                             <br>두 사람이 함께하는 새로운 시작에<br> 귀한 발걸음으로 축복해 주시면 감사하겠습니다.
                         </p>
-                        <h2 style="font-family: 'Song Myung', serif;"><br>수진🤍웅 드림<a id="playMusicBtn" class="btn btn-xl btn-light me-4"><i class="fa-solid fa-music"></i></a></h2>
+                        <h2 style="font-family: 'Song Myung', serif;"><br>수진🤍웅 드림</h2>
                         <!-- BGM -->
+                        <a id="playMusicBtn" class="btn btn-xl btn-light me-4" style="font-family: 'Song Myung', serif;"><i class="fa-solid fa-music"></i> click</a>
                         <audio id="bgm" src="assets/music/No.5 The Day I Met Her - Esther Abrami.mp3" loop></audio>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CoundDown -->
-        <div class="container">
-            <h1>2025년 11월 2일 13시 20분 카운트다운</h1>
-            
-            <div class="counter-box">
-                <h2>디데이</h2>
-                <div id="dday">계산 중...</div>
+        <!-- 달력&디데이 -->
+        <!-- HTML -->
+        <div class="wedding-info">
+            <div class="wedding-date">
+                <div class="date-main">2025.11.02</div>
+                <div class="date-sub">일요일 오후 1시 20분</div>
             </div>
-            
-            <div class="counter-box">
-                <h2>경과 시간</h2>
-                <div id="elapsed">
-                    <span class="time-unit">
-                        <span class="time-number" id="days">0</span>
-                        일
-                    </span>
-                    <span class="time-unit">
-                        <span class="time-number" id="hours">0</span>
-                        시간
-                    </span>
-                    <span class="time-unit">
-                        <span class="time-number" id="minutes">0</span>
-                        분
-                    </span>
-                    <span class="time-unit">
-                        <span class="time-number" id="seconds">0</span>
-                        초
-                    </span>
+
+            <div class="calendar-wrap">
+                <table class="calendar">
+                <thead>
+                    <tr>
+                    <th class="sun">일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th class="sat">토</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body"></tbody>
+                </table>
+            </div>
+
+            <div class="countdown-wrap">
+                <div class="countdown-box">
+                <div class="count-num" id="dday-days">--</div>
+                <div class="count-label">DAYS</div>
+                </div>
+                <span class="colon">:</span>
+                <div class="countdown-box">
+                <div class="count-num" id="dday-hours">--</div>
+                <div class="count-label">HOUR</div>
+                </div>
+                <span class="colon">:</span>
+                <div class="countdown-box">
+                <div class="count-num" id="dday-minutes">--</div>
+                <div class="count-label">MIN</div>
+                </div>
+                <span class="colon">:</span>
+                <div class="countdown-box">
+                <div class="count-num" id="dday-seconds">--</div>
+                <div class="count-label">SEC</div>
                 </div>
             </div>
+
+            <div class="dday-desc">
+                수진 <span class="heart">♥</span> 웅의 결혼식이 <span id="dday-text">--</span>일 남았습니다.
+            </div>
         </div>
+
+
 
         <!-- Introduction -->
         <section class="content-section bg-primary text-white text-center" id="services">

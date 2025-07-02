@@ -147,33 +147,93 @@ function toggleFoldable3() {
 }
 
 
-// 날짜 카운트다운/카운트업
-const targetDate = new Date('2025-11-02T13:20:00+09:00');
-function updateTimer() {
-    const now = new Date();
-    const diff = targetDate - now;
-    
-    // 디데이 계산
-    const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-    
-    // 경과시간 절대값 계산
-    const absDiff = Math.abs(diff);
-    
-    // 시간 요소 분해
-    const days = Math.floor(absDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((absDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((absDiff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((absDiff % (1000 * 60)) / 1000);
-  
-    // 디스플레이 업데이트
-    updateDisplay(diffDays, days, hours, minutes, seconds);
-  }
-  
-  setInterval(updateTimer, 1000);
-
 // BGM
 document.getElementById('playMusicBtn').addEventListener('click', function() {
     var audio = document.getElementById('bgm');
     audio.play();
     this.style.display = 'none'; // 버튼 숨기기
+});
+
+
+// 달력&디데이
+// 결혼식 날짜: 2025년 11월 2일 13시 20분
+const weddingDate = new Date('2025-11-02T13:20:00+09:00');
+
+// 달력 생성 함수
+function renderCalendar(year, month, day) {
+  const calendarBody = document.getElementById('calendar-body');
+  calendarBody.innerHTML = '';
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+
+  let row = document.createElement('tr');
+  // 첫 주 빈칸
+  for (let i = 0; i < firstDay.getDay(); i++) {
+    row.appendChild(document.createElement('td'));
+  }
+
+  for (let date = 1; date <= lastDay.getDate(); date++) {
+    const cell = document.createElement('td');
+    cell.textContent = date;
+
+    // 오늘 날짜 강조
+    const today = new Date();
+    if (
+      date === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      cell.classList.add('today');
+    }
+
+    // 결혼식 날짜 강조
+    if (date === day) {
+      cell.classList.add('selected');
+    }
+
+    row.appendChild(cell);
+
+    // 토요일마다 줄바꿈
+    if ((firstDay.getDay() + date) % 7 === 0) {
+      calendarBody.appendChild(row);
+      row = document.createElement('tr');
+    }
+  }
+  // 마지막 줄 남은 칸 채우기
+  if (row.children.length > 0) {
+    for (let i = row.children.length; i < 7; i++) {
+      row.appendChild(document.createElement('td'));
+    }
+    calendarBody.appendChild(row);
+  }
+}
+
+// 카운트다운 함수
+function updateCountdown() {
+  const now = new Date();
+  let diff = weddingDate - now;
+
+  let days, hours, minutes, seconds;
+  if (diff > 0) {
+    days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    minutes = Math.floor((diff / (1000 * 60)) % 60);
+    seconds = Math.floor((diff / 1000) % 60);
+  } else {
+    days = hours = minutes = seconds = 0;
+  }
+
+  document.getElementById('dday-days').textContent = days;
+  document.getElementById('dday-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('dday-minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('dday-seconds').textContent = String(seconds).padStart(2, '0');
+  document.getElementById('dday-text').textContent = days;
+}
+
+// 초기 렌더링
+document.addEventListener('DOMContentLoaded', function() {
+  renderCalendar(2025, 10, 2); // 2025년 11월(10), 2일
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 });

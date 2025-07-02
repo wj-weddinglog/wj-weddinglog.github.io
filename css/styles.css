@@ -11177,3 +11177,150 @@ a.no-style {
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
+
+
+/* 달력&디데이 */
+.wedding-info {
+  max-width: 420px;
+  margin: 40px auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #444;
+  background: #faf8f6;
+  border-radius: 14px;
+  padding: 32px 16px 24px 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.wedding-date {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.date-main {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #444;
+}
+
+.date-sub {
+  font-size: 1.1rem;
+  color: #888;
+  margin-top: 6px;
+}
+
+.calendar-wrap {
+  margin: 16px 0 30px 0;
+  border-top: 1px solid #ece7e2;
+  border-bottom: 1px solid #ece7e2;
+  padding: 18px 0 18px 0;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.calendar th, .calendar td {
+  width: 14.2%;
+  height: 36px;
+  text-align: center;
+  font-weight: 400;
+  color: #444;
+}
+
+.calendar th {
+  font-weight: 500;
+  color: #c97c63;
+  background: transparent;
+}
+
+.calendar .sun {
+  color: #de6c6c;
+}
+.calendar .sat {
+  color: #7a9ee6;
+}
+
+.calendar td {
+  background: transparent;
+}
+
+.calendar .selected {
+  background: #e6e0de;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.calendar .today {
+  border: 1.5px solid #c97c63;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.calendar .sun {
+  color: #de6c6c;
+}
+.calendar .sat {
+  color: #7a9ee6;
+}
+
+.countdown-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 18px 0;
+}
+
+.countdown-box {
+  width: 64px;
+  background: #f6ede8;
+  border-radius: 12px;
+  text-align: center;
+  padding: 14px 0 10px 0;
+  margin: 0 2px;
+  box-shadow: 0 1px 4px rgba(200,180,170,0.04);
+}
+
+.count-num {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #c97c63;
+  letter-spacing: 1px;
+}
+
+.count-label {
+  font-size: 0.8rem;
+  color: #b3a49a;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+
+.colon {
+  font-size: 2rem;
+  color: #e2d8d2;
+  margin: 0 6px;
+  font-weight: 600;
+}
+
+.dday-desc {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 16px;
+}
+
+.heart {
+  color: #de6c6c;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#dday-text {
+  color: #de6c6c;
+  font-weight: 500;
+}
