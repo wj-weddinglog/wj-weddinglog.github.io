@@ -239,6 +239,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 갤러리
+// 이미지 파일 경로 배열 (직접 추가하거나, 규칙적이면 for문 사용)
+const imageCount = 10; // 이미지 개수
+const imageBasePath = "assets/img/gallery/"; // 이미지 폴더 경로
+
+// 슬라이드와 썸네일 동적 생성
+const slideshow = document.getElementById('slideshow-container');
+const thumbnails = document.getElementById('gallery-thumbnails');
+
+for (let i = 1; i <= imageCount; i++) {
+  // 슬라이드 이미지
+  const slideDiv = document.createElement('div');
+  slideDiv.className = 'mySlides gfade';
+  const img = document.createElement('img');
+  img.src = `${imageBasePath}${i}.jpg`;
+  img.alt = `갤러리 이미지 ${i}`;
+  img.style.width = "100%";
+  slideDiv.appendChild(img);
+  slideshow.appendChild(slideDiv);
+
+  // 썸네일 이미지
+  const thumb = document.createElement('img');
+  thumb.className = 'thumbnail';
+  thumb.src = `${imageBasePath}${i}.jpg`;
+  thumb.alt = `썸네일${i}`;
+  // 썸네일 클릭 이벤트 동적 할당
+  thumb.addEventListener('click', function() {
+    currentSlide(i);
+  });
+  thumbnails.appendChild(thumb);
+}
+
+// 슬라이드 함수 (기존과 동일)
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -251,19 +283,32 @@ function currentSlide(n) {
 function showSlides(n) {
   let i;
   const slides = document.getElementsByClassName("mySlides");
-  const thumbnails = document.getElementsByClassName("thumbnail");
+  const thumbs = document.getElementsByClassName("thumbnail");
   if (slides.length === 0) return;
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < thumbnails.length; i++) {
-    thumbnails[i].classList.remove("active");
+  for (i = 0; i < thumbs.length; i++) {
+    thumbs[i].classList.remove("active");
   }
   slides[slideIndex-1].style.display = "block";
-  thumbnails[slideIndex-1].classList.add("active");
+  thumbs[slideIndex-1].classList.add("active");
 }
+
+// 이전/다음 버튼 동적 생성
+const prevBtn = document.createElement('a');
+prevBtn.className = 'prev';
+prevBtn.innerHTML = '&#10094;';
+prevBtn.onclick = function() { plusSlides(-1); };
+slideshow.appendChild(prevBtn);
+
+const nextBtn = document.createElement('a');
+nextBtn.className = 'next';
+nextBtn.innerHTML = '&#10095;';
+nextBtn.onclick = function() { plusSlides(1); };
+slideshow.appendChild(nextBtn);
 
 // 자동 슬라이드 (원하면 아래 주석 해제)
 setInterval(() => { plusSlides(1); }, 5000);

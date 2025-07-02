@@ -11369,28 +11369,6 @@ a.no-style {
   background: #f6ede8;
 }
 
-.gallery-thumbnails {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 10px auto 20px auto;
-  max-width: 500px;
-}
-.thumbnail {
-  width: 70px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 6px;
-  opacity: 0.5;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: opacity 0.3s, border 0.3s;
-}
-.thumbnail.active {
-  opacity: 1;
-  border: 2px solid #c97c63;
-}
-
 @media (max-width: 600px) {
   .slideshow-container, .gallery-thumbnails {
     max-width: 100%;
@@ -11400,3 +11378,46 @@ a.no-style {
     height: 36px;
   }
 }
+
+.gallery-thumbnails {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 10px auto 20px auto;
+  max-width: 500px;
+  overflow-x: auto;      /* 가로 스크롤 활성화 */
+  overflow-y: hidden;
+  padding-bottom: 8px;   /* 스크롤바와 썸네일 간격 */
+  scrollbar-width: thin; /* 파이어폭스용 */
+  scrollbar-color: #c97c63 #f6ede8;
+}
+
+.gallery-thumbnails::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-thumbnails::-webkit-scrollbar-thumb {
+  background: #c97c63;
+  border-radius: 4px;
+}
+.gallery-thumbnails::-webkit-scrollbar-track {
+  background: #f6ede8;
+  border-radius: 4px;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.5;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: opacity 0.3s, border 0.3s;
+  display: block;
+  flex: 0 0 auto; /* 썸네일이 줄지 않고 고정 너비 유지 */
+}
+.thumbnail.active {
+  opacity: 1;
+  border: 2px solid #c97c63;
+}
+

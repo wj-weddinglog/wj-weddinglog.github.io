@@ -179,64 +179,14 @@
                     <p style="font-family: 'Song Myung', serif; font-size: 25px; font-weight: bold;">갤러리</p>
                 </div>
                 <!-- 슬라이드 -->
-                <div class="slideshow-container">
-                    <div class="mySlides gfade">
-                        <img src="assets/img/gallery/1.jpg" style="width:100%" alt="갤러리 이미지 1">
-                    </div>
-                    <div class="mySlides gfade">
-                        <img src="assets/img/gallery/2.jpg" style="width:100%" alt="갤러리 이미지 2">
-                    </div>
-                    <div class="mySlides gfade">
-                        <img src="assets/img/gallery/3.jpg" style="width:100%" alt="갤러리 이미지 3">
-                    </div>
-
+                <div class="slideshow-container" id="slideshow-container">
                     <!-- 이전/다음 버튼 -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </div>
-
-                    <!-- 썸네일 리스트 -->
-                    <div class="gallery-thumbnails">
-                    <img class="thumbnail" src="assets/img/gallery/1.jpg" alt="썸네일1" onclick="currentSlide(1)">
-                    <img class="thumbnail" src="assets/img/gallery/2.jpg" alt="썸네일2" onclick="currentSlide(2)">
-                    <img class="thumbnail" src="assets/img/gallery/3.jpg" alt="썸네일3" onclick="currentSlide(3)">
                 </div>
 
-                <!--div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="pages/studio.html">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" style="font-family: 'Song Myung', serif;">스튜디오 사진 보러가기</div>
-                                    <p class="mb-0" style="font-family: 'Song Myung', serif;">At Kuho Studio</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/main.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="pages/paris.html">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" style="font-family: 'Song Myung', serif;">파리 스냅 사진 보러가기</div>
-                                    <p class="mb-0" style="font-family: 'Song Myung', serif;">At France Paris</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/paris-main.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="pages/self.html">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" style="font-family: 'Song Myung', serif;">셀프 스냅 사진 보러가기</div>
-                                    <p class="mb-0" style="font-family: 'Song Myung', serif;">Memories of years</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/self-main.jpg" alt="..." />
-                        </a>
-                    </div>
-                </div-->
+                <!-- 썸네일 리스트 -->
+                <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
             </div>
         </section>
 
