@@ -311,4 +311,4 @@ nextBtn.onclick = function() { plusSlides(1); };
 slideshow.appendChild(nextBtn);
 
 // 자동 슬라이드 (원하면 아래 주석 해제)
-setInterval(() => { plusSlides(1); }, 5000);
+//setInterval(() => { plusSlides(1); }, 5000);
