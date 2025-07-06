@@ -41,7 +41,6 @@ function brideFatherAccountNumber(){
 }
 
 
-
 // 신랑 계좌번호 복사
 function groomAccountNumber(){
 	var groom_account = '1002-931-309185 우리은행';
@@ -147,15 +146,47 @@ function toggleFoldable3() {
 }
 
 
-// BGM
+//----- 카운트 다운 함수 시작 -----//
+function updateCountdown() {
+  const now = new Date();
+  let diff = weddingDate - now;
+
+  let days, hours, minutes, seconds;
+  if (diff > 0) {
+    days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    minutes = Math.floor((diff / (1000 * 60)) % 60);
+    seconds = Math.floor((diff / 1000) % 60);
+  } else {
+    days = hours = minutes = seconds = 0;
+  }
+
+  document.getElementById('dday-days').textContent = days;
+  document.getElementById('dday-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('dday-minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('dday-seconds').textContent = String(seconds).padStart(2, '0');
+  document.getElementById('dday-text').textContent = days;
+}
+
+// 초기 렌더링
+document.addEventListener('DOMContentLoaded', function() {
+  renderCalendar(2025, 10, 2); // 2025년 11월(10), 2일
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
+//----- 카운트 다운 함수 끝 -----//
+
+
+//----- BGM 함수 시작 -----//
 document.getElementById('playMusicBtn').addEventListener('click', function() {
     var audio = document.getElementById('bgm');
     audio.play();
     this.style.display = 'none'; // 버튼 숨기기
 });
+//----- BGM 함수 끝 -----//
 
 
-// 달력&디데이
+//----- 달력 & 디데이 함수 시작 -----//
 // 결혼식 날짜: 2025년 11월 2일 13시 20분
 const weddingDate = new Date('2025-11-02T13:20:00+09:00');
 
@@ -208,37 +239,10 @@ function renderCalendar(year, month, day) {
     calendarBody.appendChild(row);
   }
 }
+//----- 달력 & 디데이 함수 끝 -----//
 
-// 카운트다운 함수
-function updateCountdown() {
-  const now = new Date();
-  let diff = weddingDate - now;
 
-  let days, hours, minutes, seconds;
-  if (diff > 0) {
-    days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    minutes = Math.floor((diff / (1000 * 60)) % 60);
-    seconds = Math.floor((diff / 1000) % 60);
-  } else {
-    days = hours = minutes = seconds = 0;
-  }
-
-  document.getElementById('dday-days').textContent = days;
-  document.getElementById('dday-hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('dday-minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('dday-seconds').textContent = String(seconds).padStart(2, '0');
-  document.getElementById('dday-text').textContent = days;
-}
-
-// 초기 렌더링
-document.addEventListener('DOMContentLoaded', function() {
-  renderCalendar(2025, 10, 2); // 2025년 11월(10), 2일
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-});
-
-// 갤러리
+//----- 갤러리 함수 시작 -----//
 // 이미지 파일 경로 배열 (직접 추가하거나, 규칙적이면 for문 사용)
 const imageCount = 10; // 이미지 개수
 const imageBasePath = "assets/img/gallery/"; // 이미지 폴더 경로
@@ -312,3 +316,5 @@ slideshow.appendChild(nextBtn);
 
 // 자동 슬라이드 (원하면 아래 주석 해제)
 //setInterval(() => { plusSlides(1); }, 5000);
+
+//----- 갤러리 함수 끝 -----//
