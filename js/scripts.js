@@ -272,11 +272,10 @@ function openGalleryModal(idx) {
   currentModalIndex = idx;
   showModalImage(currentModalIndex);
   modal.classList.add('active');
-  document.body.classList.add('gallery-blur');
+  // body 스크롤 막지 않음
 }
 function closeGalleryModal() {
   modal.classList.remove('active');
-  document.body.classList.remove('gallery-blur');
 }
 function showModalImage(idx) {
   if (idx < 0) idx = imageCount - 1;
