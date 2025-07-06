@@ -182,15 +182,17 @@
                 <div class="content-section-heading text-center">
                     <p style="font-family: 'Gowun Dodum', serif; font-size: 25px; font-weight: bold;">갤러리</p>
                 </div>
-                <!-- 슬라이드 -->
-                <div class="slideshow-container" id="slideshow-container">
-                    <!-- 이전/다음 버튼 -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div class="gallery-row" id="gallery-row"></div>
                 </div>
 
-                <!-- 썸네일 리스트 -->
-                <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
+                <!-- 플로팅 갤러리 모달 -->
+                <div id="gallery-modal" class="gallery-modal">
+                <div class="gallery-modal-content">
+                    <span class="gallery-close" id="gallery-close">&times;</span>
+                    <a class="gallery-prev" id="gallery-prev">&#10094;</a>
+                    <img id="gallery-modal-img" src="" alt="갤러리 확대 이미지">
+                    <a class="gallery-next" id="gallery-next">&#10095;</a>
+                </div>
             </div>
         </section>
 

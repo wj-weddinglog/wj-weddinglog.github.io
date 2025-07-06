@@ -243,78 +243,67 @@ function renderCalendar(year, month, day) {
 
 
 //----- 갤러리 함수 시작 -----//
-// 이미지 파일 경로 배열 (직접 추가하거나, 규칙적이면 for문 사용)
 const imageCount = 10; // 이미지 개수
-const imageBasePath = "assets/img/gallery/"; // 이미지 폴더 경로
+const imageBasePath = "assets/img/gallery/";
+const galleryRow = document.getElementById('gallery-row');
 
-// 슬라이드와 썸네일 동적 생성
-const slideshow = document.getElementById('slideshow-container');
-const thumbnails = document.getElementById('gallery-thumbnails');
-
+// 3장씩 한 줄에 나열
 for (let i = 1; i <= imageCount; i++) {
-  // 슬라이드 이미지
-  const slideDiv = document.createElement('div');
-  slideDiv.className = 'mySlides gfade';
   const img = document.createElement('img');
   img.src = `${imageBasePath}${i}.jpg`;
   img.alt = `갤러리 이미지 ${i}`;
-  img.style.width = "100%";
-  slideDiv.appendChild(img);
-  slideshow.appendChild(slideDiv);
-
-  // 썸네일 이미지
-  const thumb = document.createElement('img');
-  thumb.className = 'thumbnail';
-  thumb.src = `${imageBasePath}${i}.jpg`;
-  thumb.alt = `썸네일${i}`;
-  // 썸네일 클릭 이벤트 동적 할당
-  thumb.addEventListener('click', function() {
-    currentSlide(i);
+  img.dataset.index = i - 1;
+  img.addEventListener('click', function(e) {
+    e.stopPropagation();
+    openGalleryModal(Number(this.dataset.index));
   });
-  thumbnails.appendChild(thumb);
+  galleryRow.appendChild(img);
 }
 
-// 슬라이드 함수 (기존과 동일)
-let slideIndex = 1;
-showSlides(slideIndex);
+// 플로팅 갤러리 모달
+const modal = document.getElementById('gallery-modal');
+const modalImg = document.getElementById('gallery-modal-img');
+const closeBtn = document.getElementById('gallery-close');
+const prevBtn = document.getElementById('gallery-prev');
+const nextBtn = document.getElementById('gallery-next');
+let currentModalIndex = 0;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function openGalleryModal(idx) {
+  currentModalIndex = idx;
+  showModalImage(currentModalIndex);
+  modal.classList.add('active');
+  document.body.classList.add('gallery-blur');
 }
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function closeGalleryModal() {
+  modal.classList.remove('active');
+  document.body.classList.remove('gallery-blur');
 }
-function showSlides(n) {
-  let i;
-  const slides = document.getElementsByClassName("mySlides");
-  const thumbs = document.getElementsByClassName("thumbnail");
-  if (slides.length === 0) return;
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < thumbs.length; i++) {
-    thumbs[i].classList.remove("active");
-  }
-  slides[slideIndex-1].style.display = "block";
-  thumbs[slideIndex-1].classList.add("active");
+function showModalImage(idx) {
+  if (idx < 0) idx = imageCount - 1;
+  if (idx >= imageCount) idx = 0;
+  currentModalIndex = idx;
+  modalImg.src = `${imageBasePath}${idx + 1}.jpg`;
+  modalImg.alt = `갤러리 이미지 ${idx + 1}`;
 }
-
-// 이전/다음 버튼 동적 생성
-const prevBtn = document.createElement('a');
-prevBtn.className = 'prev';
-prevBtn.innerHTML = '&#10094;';
-prevBtn.onclick = function() { plusSlides(-1); };
-slideshow.appendChild(prevBtn);
-
-const nextBtn = document.createElement('a');
-nextBtn.className = 'next';
-nextBtn.innerHTML = '&#10095;';
-nextBtn.onclick = function() { plusSlides(1); };
-slideshow.appendChild(nextBtn);
-
-// 자동 슬라이드 (원하면 아래 주석 해제)
-//setInterval(() => { plusSlides(1); }, 5000);
-
+prevBtn.onclick = function(e) {
+  e.stopPropagation();
+  showModalImage(currentModalIndex - 1);
+};
+nextBtn.onclick = function(e) {
+  e.stopPropagation();
+  showModalImage(currentModalIndex + 1);
+};
+closeBtn.onclick = function(e) {
+  e.stopPropagation();
+  closeGalleryModal();
+};
+modal.addEventListener('click', function(e) {
+  if (e.target === modal) closeGalleryModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (!modal.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') showModalImage(currentModalIndex - 1);
+  if (e.key === 'ArrowRight') showModalImage(currentModalIndex + 1);
+  if (e.key === 'Escape') closeGalleryModal();
+});
 //----- 갤러리 함수 끝 -----//
