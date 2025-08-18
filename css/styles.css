@@ -10821,7 +10821,7 @@ textarea.form-control-lg {
 
 /* 기본 스타일: 화면 너비가 500px을 초과할 때 적용됩니다. */
 body,html {
-  width: 400px; /* 콘텐츠를 중앙에 정렬합니다. */
+  width: 490px; /* 콘텐츠를 중앙에 정렬합니다. */
   height: 100%;
   margin: 0 auto;
   padding: 0;
@@ -10842,11 +10842,16 @@ body {
 
 /* 미디어 쿼리: 화면 너비가 500px 이하일 때 적용됩니다. */
 @media (max-width: 500px) {
-            html, body {
-                /* 너비를 기기 너비에서 10px 뺀 값으로 설정합니다. */
-                width: calc(100% - 10px);
-            }
-        }
+    html, body {
+        /* 너비를 기기 너비에서 10px 뺀 값으로 설정합니다. */
+        width: calc(100% - 5px);
+        height: 100%;
+        margin: 0 auto;
+        padding: 0;
+        overflow-x: hidden;
+        overscroll-behavior: none;
+    }
+}
 
 .content-section {
   padding-top: 4rem;
