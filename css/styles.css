@@ -45,6 +45,7 @@
   /* here 29, 128, 159; */
   --bs-primary-rgb: 252, 158, 170;
   --bs-secondary-rgb: 236, 184, 7;
+  --bs-tertiary-rgb: 250, 248, 246;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 236, 184, 7;
@@ -90,19 +91,6 @@
   :root {
     scroll-behavior: smooth;
   }
-}
-
-body {
-  margin: 0;
-  padding: 1rem;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
-  line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
-  -webkit-text-size-adjust: 100%;
 }
 
 hr {
@@ -8135,6 +8123,11 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-tertiary-rgb), var(--bs-bg-opacity)) !important;
+}
+
 .bg-success {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
@@ -10825,10 +10818,24 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-body,
-html {
-  width: 100%;
+
+body,html {
+  width: 450px;
   height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
 }
 
 .content-section {
@@ -11183,7 +11190,7 @@ a.no-style {
 
 /* 달력&디데이 */
 .wedding-info {
-  max-width: 40rem;
+  max-width: 30rem;
   margin: 40px auto;
   font-family: 'Noto Sans KR', sans-serif;
   color: #444;
@@ -11310,6 +11317,7 @@ a.no-style {
 
 .dday-desc {
   text-align: center;
+  justify-content: center;
   font-size: 1.1rem;
   color: #444;
   margin-top: 16px;
@@ -11325,6 +11333,28 @@ a.no-style {
   color: #de6c6c;
   font-weight: 500;
 }
+
+/* 달력 내 하트 강조 (빨간색 하트 아이콘) */
+.calendar .heart-day {
+  position: relative;
+  font-weight: 700;
+  color: #fff;       /* 숫자색(하트상단) */
+}
+.calendar .heart-day::before {
+  content: "♥";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  color: #E52020;    /* 빨간색 하트 */
+  font-size: 2.5em;  /* 하트 크기 */
+  z-index: 0;
+  pointer-events: none;
+}
+.calendar .heart-day span {
+  position: relative;
+  z-index: 1;
+}
+/* 달력&디데이 끝*/
 
 
 /* ///// 갤러리 시작 ///// */
@@ -11416,3 +11446,29 @@ a.no-style {
   #gallery-modal-img { max-width: 90vw; max-height: 50vh; }
 }
 /* ///// 갤러리 끝 ///// */
+
+
+/* ///// 드래그 방지 ///// */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;   /* (복사 방지만 원하면 삭제해도 됨) */
+}
+/* ///// 드래그 방지 ///// */
+
+/* ///// 페이드 인 ///// */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+/* 요소가 화면에 나타났을 때 적용될 상태 */
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ///// 페이드 인 ///// */

@@ -4,6 +4,21 @@
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/LICENSE)
 */
 
+// 우클릭, 컨텍스트 방지
+document.addEventListener('contextmenu', function(e){
+  if(e.target.tagName.toLowerCase() === 'img')
+    e.preventDefault();
+});
+
+document.addEventListener('contextmenu', function(e){
+  if(e.target.tagName.toLowerCase() === 'img'){
+    e.preventDefault();
+    alert("이미지 복사는 허용되지 않습니다.");
+  }
+});
+// 우클릭, 컨텍스트 방지
+
+
 // 링크 복사
 function copyLink(){
 	var url = 'https://wj-weddinglog.github.io/';
@@ -206,7 +221,6 @@ function renderCalendar(year, month, day) {
 
   for (let date = 1; date <= lastDay.getDate(); date++) {
     const cell = document.createElement('td');
-    cell.textContent = date;
 
     // 오늘 날짜 강조
     const today = new Date();
@@ -218,9 +232,15 @@ function renderCalendar(year, month, day) {
       cell.classList.add('today');
     }
 
-    // 결혼식 날짜 강조
+    // 결혼식 날짜 강조(빨간 하트)
     if (date === day) {
-      cell.classList.add('selected');
+      cell.classList.add('heart-day');
+      const span = document.createElement('span');
+      span.textContent = date;
+      cell.textContent = '';
+      cell.appendChild(span);
+    } else {
+      cell.textContent = date;
     }
 
     row.appendChild(cell);
@@ -306,3 +326,37 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeGalleryModal();
 });
 //----- 갤러리 함수 끝 -----//
+
+//----- 페이드 함수 시작 -----//
+document.addEventListener('DOMContentLoaded', () => {
+    // 페이드인 효과를 적용할 모든 요소를 선택합니다.
+    const fadeInElements = document.querySelectorAll('.fade-in');
+
+    // Intersection Observer 생성 시 옵션 설정
+    const observerOptions = {
+        root: null, // 뷰포트를 기준으로 설정
+        rootMargin: '0px',
+        threshold: 0.25 // 요소가 10% 보였을 때 콜백 실행
+    };
+
+    // Intersection Observer 콜백 함수
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            // entry.isIntersecting은 요소가 뷰포트와 교차하는지 여부를 나타내는 boolean 값입니다.
+            if (entry.isIntersecting) {
+                // 요소가 화면에 보이면 'is-visible' 클래스를 추가합니다.
+                entry.target.classList.add('is-visible');
+            } else {
+                // 요소가 화면에서 사라지면 'is-visible' 클래스를 제거하여 효과를 초기화합니다.
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    };
+
+    // Intersection Observer 인스턴스 생성
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // 각 페이드인 요소에 대해 관찰을 시작합니다.
+    fadeInElements.forEach(el => observer.observe(el));
+});
+//----- 페이드 함수 끝 -----//
