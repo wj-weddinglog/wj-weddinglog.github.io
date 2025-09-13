@@ -18,7 +18,6 @@ document.addEventListener('contextmenu', function(e){
 });
 // 우클릭, 컨텍스트 방지
 
-
 // 링크 복사
 function copyLink(){
 	var url = 'https://wj-weddinglog.github.io/';
@@ -109,20 +108,20 @@ function kakaoShare() {
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-        title: '웅🤍수진 결혼합니다.',
+        title: '웅🤍수진',
         description: '2025.11.02\n13시 20분 웨스턴베니비스 신도림',
-        imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/main.jpg?raw=true',
+        imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/link-main.jpg?raw=true',
         link: {
-            mobileWebUrl: 'https://wj-weddinglog.github.io//#!',
-            webUrl: 'https://wj-weddinglog.github.io//#!',
+            mobileWebUrl: 'https://wj-weddinglog.github.io/',
+            webUrl: 'https://wj-weddinglog.github.io/',
         },
         },
         buttons: [
         {
             title: '모바일 청첩장 보기',
             link: {
-            mobileWebUrl: 'https://wj-weddinglog.github.io//#!',
-            webUrl: 'https://wj-weddinglog.github.io//#!',
+            mobileWebUrl: 'https://wj-weddinglog.github.io/',
+            webUrl: 'https://wj-weddinglog.github.io/',
             },
         },
         ],

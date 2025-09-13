@@ -11037,14 +11037,12 @@ footer.footer {
   display: table;
   width: 100%;
   height: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/main.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .masthead h1, .masthead .h1 {
   font-size: 4rem;
