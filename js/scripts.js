@@ -33,60 +33,79 @@ function copyLink(){
 
 // 신부 계좌번호 복사
 function brideAccountNumber(){
-	var bride_account = '1002-931-309185 우리은행';
+	var bride_account = "1002-843-110250 우리은행";
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = bride_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("신부의 계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
+	alert("신부의 계좌번호가 복사되었습니다.\n" + bride_account);
 }
-
 // 신부아버님 계좌번호 복사 
 function brideFatherAccountNumber(){
-    var bride_father_account = '1002-931-309185 우리은행';
+    var bride_father_account = "038701-04-079985 국민은행";
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = bride_father_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
+	alert("계좌번호가 복사되었습니다.\n" + bride_father_account);
+}
+// 신부어머님 계좌번호 복사 
+function brideMotherAccountNumber(){
+    var bride_mother_account = "243-078544-00107 하나은행";
+	var textarea = document.createElement("textarea");
+	document.body.appendChild(textarea);
+	textarea.value = bride_mother_account;
+	textarea.select();
+	document.execCommand("copy");
+	document.body.removeChild(textarea);
+	alert("계좌번호가 복사되었습니다.\n" + bride_mother_account);
 }
 
 
 // 신랑 계좌번호 복사
 function groomAccountNumber(){
-	var groom_account = '1002-931-309185 우리은행';
+	var groom_account = "1002-931-309185 우리은행";
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = groom_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("신랑의 계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
+	alert("신랑의 계좌번호가 복사되었습니다.\n" + groom_account);
 }
-
 // 신랑아버님 계좌번호 복사 
 function groomsFatherAccountNumber(){
-    var grooms_father_account = '1002-931-309185 우리은행';
+    var grooms_father_account = "1002-931-309185 우리은행";
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
 	textarea.value = grooms_father_account;
 	textarea.select();
 	document.execCommand("copy");
 	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n1002-931-309185 우리은행")
+	alert("계좌번호가 복사되었습니다.\n" + grooms_father_account);
 }
-
+// 신랑아버님 계좌번호 복사 
+function groomsMotherAccountNumber(){
+    var grooms_mother_account = "1002-931-309185 우리은행";
+	var textarea = document.createElement("textarea");
+	document.body.appendChild(textarea);
+	textarea.value = grooms_mother_account;
+	textarea.select();
+	document.execCommand("copy");
+	document.body.removeChild(textarea);
+	alert("계좌번호가 복사되었습니다.\n" + grooms_mother_account)
+}
 
 // 카카오톡 공유하기
 function kakaoShare() {
     Kakao.init('ad4dbad813285bef96fa2897dcc23fae');
     // SDK 초기화 여부를 판단합니다.
     Kakao.isInitialized();
-    //console.log(Kakao.isInitialized());
+    //console.log(Kakao.isInitialized()); 
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
@@ -263,7 +282,7 @@ function renderCalendar(year, month, day) {
 
 
 //----- 갤러리 함수 시작 -----//
-const imageCount = 10; // 이미지 개수
+const imageCount = 27; // 이미지 개수
 const imageBasePath = "assets/img/gallery/";
 const galleryRow = document.getElementById('gallery-row');
 

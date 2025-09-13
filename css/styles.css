@@ -11006,7 +11006,7 @@ footer.footer {
   width: 4rem;
   line-height: 4.3rem;
   font-size: 1.5rem;
-  background-color: #23252A;
+  /*background-color: #23252A;*/
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
@@ -11032,17 +11032,17 @@ footer.footer {
   }
 }
 .masthead {
-  min-height: 30rem;
+  min-height: 4rem;
   position: relative;
   display: table;
   width: 100%;
-  height: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  height: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/main.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .masthead h1, .masthead .h1 {
   font-size: 4rem;
@@ -11376,7 +11376,7 @@ a.no-style {
 .gallery-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px;
   justify-content: center;
   margin: 0 auto 20px auto;
   max-width: 500px;
@@ -11384,7 +11384,7 @@ a.no-style {
 .gallery-row img {
   width: calc(33.333% - 8px);
   max-width: 120px;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   object-fit: cover;
   border-radius: 8px;
   cursor: pointer;

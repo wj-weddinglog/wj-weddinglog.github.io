@@ -28,35 +28,45 @@
         
 
     </head>
-    <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js), Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HLJHZWS58"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5HLJHZWS58');
-    </script>
-    <body id="page-top">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5HLJHZWS58');
+        </script>
+        <id="page-top">
 
         <!-- Header-->
-        <header class="masthead d-flex align-items-center">
-            <div class="container px-4 px-lg-5 text-center">
-                <br><br><br>
-                <p style="font-family: 'Amatic SC', sans-serif; color: black; font-weight: bold; font-size: 48px">Sujin & Woong</p>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <p style="font-family: 'Amatic SC', sans-serif; color: brown; font-weight: bold; font-size: 32px">| We invite you to our wedding |</p>
-                <p style="font-family: 'Gowun Dodum', serif; color: black; font-size: 16px"><br>❤️2025.11.02❤️<br>오후 1시 20분<br>웨스턴베니비스 신도림</p>
-            </div>
+        <header class="fade-in d-flex align-items-center">
+            <div class="container px-4 px-lg-5 text-center masthead"></div>
         </header>
 
+        <!-- Header -->
+        <section class="fade-in content-section bg-white" id="header">
+            <div class="container px-4 px-lg-5">
+                <p style="font-family: 'Amatic SC', sans-serif; color: black; font-weight: bold; font-size: 48px">Sujin & Woong</p>
+            </div>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center text-center">
+                    <p style="font-family: 'Amatic SC', sans-serif; color: brown; font-weight: bold; font-size: 32px">| We invite you to our wedding |</p>
+                    <p style="font-family: 'Gowun Dodum', serif; color: black; font-size: 16px"><br>2025년 11월 02일 일요일 오후 1시 20분<br>웨스턴베니비스 신도림</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Contents -->
-        <section class="content-section bg-light" id="about">
-            <div class="fade-in container px-4 px-lg-5 text-center">
+        <section class="fade-in content-section bg-white" id="about">
+            <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-10">
+                    <div class="col-lg-10 text-center">
                         <!-- BGM -->
                         <a id="playMusicBtn" class="btn btn-xl btn-light me-4" style="font-family: 'Gowun Dodum', serif;"><i class="fa-solid fa-music"></i> click</a>
                         <audio id="bgm" src="assets/music/No.5 The Day I Met Her - Esther Abrami.mp3" loop></audio>
+                        <br><br>
+                        <p style="font-family: 'Gowun Dodum', serif; font-size: 20px; line-height: 50%; color: #cc9900">소중한 분들을 초대합니다.</p>
+                        <br>
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px; line-height: 50%;">봄의 그대는 벚꽃이었고</p>
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px; line-height: 50%;">여름의 그대는 바람이었으며</p>
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px; line-height: 50%; text-indent: -12px;">가을의 그대는 하늘이었고</p>
@@ -64,7 +74,7 @@
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px;">그대는 언제나 행복 그 자체였다.</p>
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px;">- 강현욱, '사계'</p>
                         <br>
-                        <p style="color: brown">❀ ❁ ✧ ❁ ❀</p>
+                        <!--p style="color: brown">❀ ❁ ✧ ❁ ❀</p-->
                         <br>
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px; line-height: 60%;">두 번의 사계절을 함께하며 쌓아온 행복의 순간들이</p>
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 14px; line-height: 60%;">이제 아름다운 사랑으로 결실을 맺으려 합니다.</p>
@@ -77,103 +87,67 @@
         </section>
 
         <!-- 달력&디데이 -->
-        <div class="fade-in wedding-info">
-            <div class="wedding-date">
-                <div style="font-family: 'Gowun Dodum', serif;" class="date-main">2025.11.02</div>
-                <div style="font-family: 'Gowun Dodum', serif;"class="date-sub">일요일 오후 1시 20분</div>
-            </div>
+        <section class="fade-in content-section bg-light" id="calendar">
+            <div class="wedding-info">
+                <div class="wedding-date">
+                    <div style="font-family: 'Gowun Dodum', serif;" class="date-main">2025.11.02</div>
+                    <div style="font-family: 'Gowun Dodum', serif;"class="date-sub">일요일 오후 1시 20분</div>
+                </div>
 
-            <div class="calendar-wrap; font-family: 'Gowun Dodum', serif;">
-                <table class="calendar">
-                <thead>
-                    <tr>
-                        <th class="sun">일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th class="sat">토</th>
-                    </tr>
-                </thead>
-                <tbody id="calendar-body"></tbody>
-                </table>
-            </div>
+                <div class="calendar-wrap; font-family: 'Gowun Dodum', serif;">
+                    <table class="calendar">
+                    <thead>
+                        <tr>
+                            <th class="sun">일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th class="sat">토</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body"></tbody>
+                    </table>
+                </div>
 
-            <div class="countdown-wrap">
-                <div class="countdown-box">
-                    <div class="count-num" id="dday-days">--</div>
-                    <div class="count-label">DAYS</div>
+                <div class="countdown-wrap">
+                    <div class="countdown-box">
+                        <div class="count-num" id="dday-days">--</div><div class="count-label">DAYS</div>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="countdown-box">
+                        <div class="count-num" id="dday-hours">--</div><div class="count-label">HOUR</div>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="countdown-box">
+                        <div class="count-num" id="dday-minutes">--</div><div class="count-label">MIN</div>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="countdown-box">
+                        <div class="count-num" id="dday-seconds">--</div><div class="count-label">SEC</div>
+                    </div>
                 </div>
-                <span class="colon">:</span>
-                <div class="countdown-box">
-                    <div class="count-num" id="dday-hours">--</div>
-                    <div class="count-label">HOUR</div>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-box">
-                    <div class="count-num" id="dday-minutes">--</div>
-                    <div class="count-label">MIN</div>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-box">
-                    <div class="count-num" id="dday-seconds">--</div>
-                    <div class="count-label">SEC</div>
-                </div>
-            </div>
-            <div class="countdown-wrap">
-                <div class="dday-desc; font-family: 'Gowun Dodum', serif;">
-                    웅 <span class="heart">♥</span> 수진의 결혼식이 <span id="dday-text">--</span>일 남았습니다.
+                <div class="countdown-wrap">
+                    <div class="dday-desc; font-family: 'Gowun Dodum', serif;">
+                        웅 <span class="heart">♥</span> 수진의 결혼식이 <span id="dday-text">--</span>일 남았습니다.
+                    </div>
                 </div>
             </div>
-        </div>
-
+        </section>
 
 
         <!-- 신랑&신부 소개 -->
-        <section class="fade-in content-section bg-light text-black text-center" id="services">
-            <div class="container px-4 px-lg-5">
+        <section class="fade-in content-section bg-light" id="protagonist">
+            <div class="container px-4 px-lg-5 text-center">
                 <div class="content-section-heading">
                     <p style="font-family: 'Gowun Dodum', serif; font-size: 24px; font-weight: bold;">신랑&신부</p>
                 </div>
                 <br>
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
-                        <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">정재환 노해숙의 장남</p>
-                        <h3 style="font-family: 'Gowun Dodum', serif;">신랑 정&nbsp;웅🤵♂️</h3>
-                        <img src="assets/img/profile/woong.jpg" class="img-fluid rounded-circle" alt="신랑 이미지">
-                        <p><br></p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-black mr-3" href="tel:01064506850"><i class="fa-solid fa-phone"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-black mr-3" onclick="groomAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </li>
-                            </ul>
-                            <div id="foldableSection">
-                                <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;" class="toggle-button text-black" onclick="toggleFoldable()">혼주 연락처보기<span id="toggleIcon">▼</span></p>
-                                <div class="foldable-content">
-                                    <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">정재환&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a onclick="groomsFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></p>
-                                    <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">노해숙&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a></p>  
-                                </div>
-                            </div>
+                        <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;">정재환 노해숙의 장남</p>
+                        <h4 style="font-family: 'Gowun Dodum', serif;">신랑 정&nbsp;웅🤵♂️</h4>
+                        <img src="assets/img/profile/woong.jpeg" class="img-fluid rounded-circle" alt="신랑 이미지">
                     </div>
                     <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
-                        <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">최상순 윤인숙의 장녀</p>
-                        <h3 style="font-family: 'Gowun Dodum', serif;">신부 최수진👰♀️</h3>
-                        <img src="assets/img/profile/sujin.jpg" class="img-fluid rounded-circle" alt="신부 이미지">
-                        <p><br></p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-black mr-5" href="tel:01095100592"><i class="fa-solid fa-phone"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-black mr-5" onclick="brideAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </li>
-                            </ul>
-
-                            <div id="foldableSection">
-                                <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;" class="toggle-button text-black" onclick="toggleFoldable2()">혼주 연락처보기<span id="toggleIcon2">▼</span></p>
-                                <div class="foldable-content2">
-                                    <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">최상순&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a onclick="brideFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></p>
-                                    <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">윤인숙&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a></p>  
-                                </div>
-                            </div>
+                        <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;">최상순 윤인숙의 장녀</p>
+                        <h4 style="font-family: 'Gowun Dodum', serif;">신부 최수진👰♀️</h4>
+                        <img src="assets/img/profile/sujin.jpeg" class="img-fluid rounded-circle" alt="신부 이미지">
                     </div>
                 </div>
             </div>
@@ -181,7 +155,7 @@
         
         
         <!-- Gallery Zone -->
-        <section class="fade-in content-section" id="portfolio">
+        <section class="fade-in content-section" id="gallery">
             <div class="container px-4 px-lg-5">
                 <div class="content-section-heading text-center">
                     <p style="font-family: 'Gowun Dodum', serif; font-size: 24px; font-weight: bold;">갤러리</p>
@@ -200,8 +174,75 @@
             </div>
         </section>
 
+        <!-- Contact -->
+        <section class="fade-in content-section" id="parents">
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="content-section-heading">
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 24px; font-weight: bold;">마음 전해주실 곳</p>
+                </div>
+                <br>
+                <div class="row gx-4 gx-lg-5">
+                    <!-- 신랑측 -->
+                    <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
+                        <div class="text-center">
+                            <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">신랑측</p>
+                        </div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="social-link rounded-circle mr-3" href="tel:01064506850"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="social-link rounded-circle mr-3" onclick="groomAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                            </li>
+                        </ul>
+                        <div id="foldableSection">
+                            <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;" class="toggle-button text-black" onclick="toggleFoldable()">혼주 연락처 펼처보기<span id="toggleIcon">▼</span></p>
+                            <div class="foldable-content">
+                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">정재환&nbsp;&nbsp;&nbsp;
+                                    <a href="tel:01091847076"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="sms:01091847076"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a onclick="groomsFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                                </p>
+                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">노해숙&nbsp;&nbsp;&nbsp;
+                                    <a href="tel:01032797076"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="sms:01032797076"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a onclick="groomsMotherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 신부측 -->
+                    <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
+                        <div class="text-center">
+                            <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">신부측</p>
+                        </div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a class="social-link rounded-circle mr-5" href="tel:01095100592"><i class="fa-solid fa-phone"></i></a></li>
+                            <li class="list-inline-item"><a class="social-link rounded-circle mr-5" onclick="brideAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></li>
+                        </ul>
+                        <div id="foldableSection">
+                            <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;" class="toggle-button text-black" onclick="toggleFoldable2()">혼주 연락처 펼쳐보기<span id="toggleIcon2">▼</span></p>
+                            <div class="foldable-content2">
+                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">최상순&nbsp;&nbsp;&nbsp;
+                                    <a href="tel:01088620592"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="sms:01088620592"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a onclick="brideFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                                </p>
+                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">윤인숙&nbsp;&nbsp;&nbsp;
+                                    <a href="tel:01091100592"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="sms:01091100592"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
+                                    <a onclick="brideMotherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                                </p>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Information -->
-        <section class="fade-in content-section bg-tertiary text-black">
+        <section class="fade-in content-section bg-tertiary text-black" id="information">
             <div class="container px-4 px-lg-5 text-center">
                 <p style="font-family: 'Gowun Dodum', serif; font-size: 24px; font-weight: bold;">오시는 길</p>
                 <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;">웨스턴베니비스 신도림 7층 아스타홀<br>서울 구로구 새말로 97</p>
@@ -238,10 +279,30 @@
                 <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: #e60012">좌석버스: 301, 320</p>
                 <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%;color: #33cc99">경기버스: 10, 17-1, 11-2, 83, 88, 510, 530</p>
             </div>
+            <br>
+            <div class="container px-4 px-lg-5">
+                <div class="text-center">
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 20px; color: #FF0066; font-weight: bold;">방문시 꿀팁 대공개</p>
+                </div>
+                <br>
+                <div class="text-left">
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; font-weight: bold;">⭐️ 신도림역 지하철 3번 출구 연결 엘리베이터</p>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: black">테크노마트로 들어오신 후 CENTRE POINT 사무동</p>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: black">스타벅스 센터포인트점 부근 엘리베이터 이용 시</p>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: black">덜 혼잡하게 이동 가능합니다.</p>
+                    <br>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; font-weight: bold;">⭐️ 중앙 에스컬레이터 이용</p>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: black">테크노마트 엘리베이터 이용시 혼잡 가능성이 높고</p>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: black">중앙 에스컬레이터 이용시 빠르게 올라오실 수 있습니다.</p>
+                    <br>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; font-weight: bold;">⭐️ 연회장(아스타홀) 이용 시간</p>
+                    <p style="font-family: 'Gowun Dodum', serif; font-size: 16px; line-height: 80%; color: black">예식 시작 30분 전부터 이용 가능(12:50 부터)</p>
+                </div>
+            </div>
         </section>
 
         <!-- Map-->
-        <div class="fade-in form-group">
+        <div class="fade-in form-group" id="maps">
             <div class="col-md-12">
                 <div class="my-3 text-center">
                     <a href="https://naver.me/53lK4SBz" target="_blank">                <img alt="naver-map" class="map-icon" id="naver-map" src="assets/img/map/naver-map.png"/></a>
@@ -256,8 +317,7 @@
         </div>
 
         <!-- Footer-->
-        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-        <footer class="footer text-center">
+        <footer class="fade-in footer text-center" id="share-link">
             <div class="container px-4 px-lg-5">
                 <ul class="list-inline">
                     <li class="list-inline-item">
@@ -267,7 +327,7 @@
                         <a class="social-link rounded-circle text-white mr-5" title="링크 복사하기" onclick="copyLink(); return false;" href="#!"><i class="fa-solid fa-link"></i></a>
                     </li>
                 </ul>
-                <p class="text-muted small mb-0" style="font-family: 'Gowun Dodum', sans-serif;">Made By Woody</p>
+                <p class="text-muted small mb-0" style="font-family: 'Gowun Dodum', sans-serif;">Made By Woong Jeong</p>
             </div>
         </footer>
        
@@ -275,7 +335,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-    </body>
-        
-        
+    </body>  
 </html>
