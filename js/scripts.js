@@ -108,22 +108,22 @@ function kakaoShare() {
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-        title: '웅🤍수진',
-        description: '2025.11.02\n13시 20분 웨스턴베니비스 신도림',
-        imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/link-main.jpg?raw=true',
-        link: {
-            mobileWebUrl: 'https://wj-weddinglog.github.io/',
-            webUrl: 'https://wj-weddinglog.github.io/',
-        },
+          title: '웅🤍수진',
+          description: '2025.11.02\n13시 20분 웨스턴베니비스 신도림',
+          imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/link-main.jpg?raw=true',
+          link: {
+            mobileWebUrl: 'https://wj-weddinglog.github.io',
+            webUrl: 'https://wj-weddinglog.github.io',
+          },
         },
         buttons: [
-        {
+          {
             title: '모바일 청첩장 보기',
             link: {
-            mobileWebUrl: 'https://wj-weddinglog.github.io/',
-            webUrl: 'https://wj-weddinglog.github.io/',
+              mobileWebUrl: 'https://wj-weddinglog.github.io',
+              webUrl: 'https://wj-weddinglog.github.io',
             },
-        },
+          },
         ],
         // 카카오톡 미설치 시 카카오톡 설치 경로이동
         installTalk: true,
