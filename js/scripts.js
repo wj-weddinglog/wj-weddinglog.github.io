@@ -4,99 +4,116 @@
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/LICENSE)
 */
 
-// 우클릭, 컨텍스트 방지
-document.addEventListener('contextmenu', function(e){
-  if(e.target.tagName.toLowerCase() === 'img')
-    e.preventDefault();
-});
 
-document.addEventListener('contextmenu', function(e){
-  if(e.target.tagName.toLowerCase() === 'img'){
-    e.preventDefault();
-    alert("이미지 복사는 허용되지 않습니다.");
-  }
-});
-// 우클릭, 컨텍스트 방지
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.innerText = message;
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    text-align: center;
+  `;
+  document.body.appendChild(toast);
+
+  // 나타나기
+  setTimeout(() => {
+    toast.style.opacity = "1";
+  }, 10);
+
+  // 사라지기
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.addEventListener('transitionend', () => toast.remove());
+  }, 2000);
+}
 
 // 링크 복사
 function copyLink(){
-	var url = 'https://wj-weddinglog.github.io/';
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = url;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("링크가 복사되었습니다. 널리널리 퍼뜨려주세요💕")
+    var url = 'https://wj-weddinglog.github.io/';
+    navigator.clipboard.writeText(url)
+        .then(() => {
+            showToast("링크가 복사되었습니다. 널리널리 퍼뜨려주세요💕");
+        })
+        .catch(err => {
+            showToast("계좌 복사 실패: " + err);
+        });
 }
 
 // 신부 계좌번호 복사
 function brideAccountNumber(){
-	var bride_account = "1002-843-110250 우리은행";
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = bride_account;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("신부의 계좌번호가 복사되었습니다.\n" + bride_account);
+    var bride_account = "1002-843-110250 우리은행";
+    navigator.clipboard.writeText(bride_account)
+        .then(() => {
+            showToast("신부 계좌번호가 복사되었습니다.\n" + bride_account);
+        })
+        .catch(err => {
+            showToast("복사 실패: " + err);
+        });
 }
-// 신부아버님 계좌번호 복사 
+// 신부아버님 계좌번호 복사
 function brideFatherAccountNumber(){
     var bride_father_account = "038701-04-079985 국민은행";
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = bride_father_account;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n" + bride_father_account);
+    navigator.clipboard.writeText(bride_father_account)
+        .then(() => {
+            showToast("신부 아버님 계좌번호가 복사되었습니다.\n" + bride_father_account);
+        })
+        .catch(err => {
+            showToast("복사 실패: " + err);
+        });
 }
-// 신부어머님 계좌번호 복사 
+// 신부어머님 계좌번호 복사
 function brideMotherAccountNumber(){
     var bride_mother_account = "243-078544-00107 하나은행";
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = bride_mother_account;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n" + bride_mother_account);
+    navigator.clipboard.writeText(bride_mother_account)
+        .then(() => {
+            showToast("신부 어머님 계좌번호가 복사되었습니다.\n" + bride_mother_account);
+        })
+        .catch(err => {
+            showToast("복사 실패: " + err);
+        });
 }
-
 
 // 신랑 계좌번호 복사
 function groomAccountNumber(){
-	var groom_account = "1002-931-309185 우리은행";
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = groom_account;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("신랑의 계좌번호가 복사되었습니다.\n" + groom_account);
+    var groom_account = "1002-931-309185 우리은행";
+    navigator.clipboard.writeText(groom_account)
+        .then(() => {
+            showToast("신랑 계좌번호가 복사되었습니다.\n" + groom_account);
+        })
+        .catch(err => {
+            showToast("복사 실패: " + err);
+        });
 }
-// 신랑아버님 계좌번호 복사 
+// 신랑아버님 계좌번호 복사
 function groomsFatherAccountNumber(){
-    var grooms_father_account = "1002-931-309185 우리은행";
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = grooms_father_account;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n" + grooms_father_account);
+    var groom_account = "1002-931-309185 우리은행";
+    navigator.clipboard.writeText(groom_account)
+        .then(() => {
+            showToast("신랑 계좌번호가 복사되었습니다.\n" + groom_account);
+        })
+        .catch(err => {
+            showToast("복사 실패: " + err);
+        });
 }
-// 신랑아버님 계좌번호 복사 
+// 신랑아버님 계좌번호 복사
 function groomsMotherAccountNumber(){
-    var grooms_mother_account = "1002-931-309185 우리은행";
-	var textarea = document.createElement("textarea");
-	document.body.appendChild(textarea);
-	textarea.value = grooms_mother_account;
-	textarea.select();
-	document.execCommand("copy");
-	document.body.removeChild(textarea);
-	alert("계좌번호가 복사되었습니다.\n" + grooms_mother_account)
+    var groom_account = "1002-931-309185 우리은행";
+    navigator.clipboard.writeText(groom_account)
+        .then(() => {
+            showToast("신랑 계좌번호가 복사되었습니다.\n" + groom_account);
+        })
+        .catch(err => {
+            showToast("복사 실패: " + err);
+        });
 }
 
 // 카카오톡 공유하기
@@ -284,19 +301,40 @@ function renderCalendar(year, month, day) {
 const imageCount = 27; // 이미지 개수
 const imageBasePath = "assets/img/gallery/";
 const galleryRow = document.getElementById('gallery-row');
+const loadMoreBtn = document.getElementById('load-more-btn');
+const initialShowCount = 9;
+let imagesShown = 0;
 
-// 3장씩 한 줄에 나열
-for (let i = 1; i <= imageCount; i++) {
-  const img = document.createElement('img');
-  img.src = `${imageBasePath}${i}.jpg`;
-  img.alt = `갤러리 이미지 ${i}`;
-  img.dataset.index = i - 1;
-  img.addEventListener('click', function(e) {
-    e.stopPropagation();
-    openGalleryModal(Number(this.dataset.index));
-  });
-  galleryRow.appendChild(img);
+const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i+1}.jpg`);
+
+// 함수: 이미지 렌더링
+function renderImages(count) {
+    for (let i = imagesShown; i < imagesShown + count && i < allImageUrls.length; i++) {
+        const img = document.createElement('img');
+        img.src = allImageUrls[i];
+        img.alt = `갤러리 이미지 ${i + 1}`;
+        img.dataset.index = i;
+        img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openGalleryModal(Number(this.dataset.index));
+        });
+        galleryRow.appendChild(img);
+    }
+    imagesShown += count;
+
+    if (imagesShown >= allImageUrls.length) {
+        loadMoreBtn.style.display = 'none';
+    }
 }
+
+// 초기 이미지 렌더링
+renderImages(initialShowCount);
+
+// '더보기' 버튼 클릭 이벤트
+loadMoreBtn.addEventListener('click', () => {
+    const remainingImages = allImageUrls.length - imagesShown;
+    renderImages(remainingImages);
+});
 
 // 플로팅 갤러리 모달
 const modal = document.getElementById('gallery-modal');
@@ -305,43 +343,74 @@ const closeBtn = document.getElementById('gallery-close');
 const prevBtn = document.getElementById('gallery-prev');
 const nextBtn = document.getElementById('gallery-next');
 let currentModalIndex = 0;
+let startX = 0;
 
 function openGalleryModal(idx) {
-  currentModalIndex = idx;
-  showModalImage(currentModalIndex);
-  modal.classList.add('active');
-  // body 스크롤 막지 않음
+    currentModalIndex = idx;
+    showModalImage(currentModalIndex);
+    modal.classList.add('active');
 }
+
 function closeGalleryModal() {
-  modal.classList.remove('active');
+    modal.classList.remove('active');
 }
+
 function showModalImage(idx) {
-  if (idx < 0) idx = imageCount - 1;
-  if (idx >= imageCount) idx = 0;
-  currentModalIndex = idx;
-  modalImg.src = `${imageBasePath}${idx + 1}.jpg`;
-  modalImg.alt = `갤러리 이미지 ${idx + 1}`;
+    if (idx < 0) {
+        idx = imageCount - 1;
+    }
+    if (idx >= imageCount) {
+        idx = 0;
+    }
+    currentModalIndex = idx;
+    modalImg.src = allImageUrls[idx];
+    modalImg.alt = `갤러리 이미지 ${idx + 1}`;
 }
+
 prevBtn.onclick = function(e) {
-  e.stopPropagation();
-  showModalImage(currentModalIndex - 1);
+    e.stopPropagation();
+    showModalImage(currentModalIndex - 1);
 };
+
 nextBtn.onclick = function(e) {
-  e.stopPropagation();
-  showModalImage(currentModalIndex + 1);
+    e.stopPropagation();
+    showModalImage(currentModalIndex + 1);
 };
+
 closeBtn.onclick = function(e) {
-  e.stopPropagation();
-  closeGalleryModal();
+    e.stopPropagation();
+    closeGalleryModal();
 };
+
+// 모달 닫기 이벤트 (배경 클릭 시)
 modal.addEventListener('click', function(e) {
-  if (e.target === modal) closeGalleryModal();
+    if (e.target === modal) {
+        closeGalleryModal();
+    }
 });
+
+// 터치 스와이프 기능 추가
+let touchStartX = 0;
+modal.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+
+modal.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = endX - touchStartX;
+    if (deltaX > 50) { // 오른쪽으로 스와이프
+        showModalImage(currentModalIndex - 1);
+    } else if (deltaX < -50) { // 왼쪽으로 스와이프
+        showModalImage(currentModalIndex + 1);
+    }
+});
+
+// 키보드 이벤트
 document.addEventListener('keydown', function(e) {
-  if (!modal.classList.contains('active')) return;
-  if (e.key === 'ArrowLeft') showModalImage(currentModalIndex - 1);
-  if (e.key === 'ArrowRight') showModalImage(currentModalIndex + 1);
-  if (e.key === 'Escape') closeGalleryModal();
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') showModalImage(currentModalIndex - 1);
+    if (e.key === 'ArrowRight') showModalImage(currentModalIndex + 1);
+    if (e.key === 'Escape') closeGalleryModal();
 });
 //----- 갤러리 함수 끝 -----//
 
