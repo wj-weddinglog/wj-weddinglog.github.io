@@ -121,7 +121,7 @@ function kakaoShare() {
     Kakao.init('ad4dbad813285bef96fa2897dcc23fae');
     // SDK 초기화 여부를 판단합니다.
     Kakao.isInitialized();
-    //console.log(Kakao.isInitialized()); 
+    console.log(Kakao.isInitialized()); 
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
