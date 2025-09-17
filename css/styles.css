@@ -11402,14 +11402,15 @@ a.no-style {
     z-index: 1001;
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
     outline: none;
     animation: fadeIn 0.3s forwards;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -11419,15 +11420,15 @@ a.no-style {
 }
 .gallery-modal-content {
     position: relative;
-    max-width: 95vw;
-    max-height: 85vh;
+    max-width: 95%;
+    max-height: 85%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 #gallery-modal-img {
-    max-width: 70vw;
-    max-height: 60vh;
+    max-width: 70%;
+    max-height: 60%;
     width: auto;
     height: auto;
     border-radius: 8px;
@@ -11491,18 +11492,6 @@ a.no-style {
     }
 }
 /* ///// 갤러리 끝 ///// */
-
-
-/* ///// 드래그 방지 ///// */
-img {
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;   /* (복사 방지만 원하면 삭제해도 됨) */
-}
-/* ///// 드래그 방지 ///// */
 
 /* ///// 페이드 인 ///// */
 .fade-in {

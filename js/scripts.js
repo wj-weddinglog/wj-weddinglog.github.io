@@ -121,7 +121,7 @@ function kakaoShare() {
     Kakao.init('ad4dbad813285bef96fa2897dcc23fae');
     // SDK 초기화 여부를 판단합니다.
     Kakao.isInitialized();
-    console.log(Kakao.isInitialized()); 
+    //console.log(Kakao.isInitialized()); 
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
@@ -305,7 +305,7 @@ const loadMoreBtn = document.getElementById('load-more-btn');
 const initialShowCount = 9;
 let imagesShown = 0;
 
-const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i+1}.jpg`);
+const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpg`);
 
 // 함수: 이미지 렌더링
 function renderImages(count) {
@@ -315,6 +315,7 @@ function renderImages(count) {
         img.alt = `갤러리 이미지 ${i + 1}`;
         img.dataset.index = i;
         img.addEventListener('click', function(e) {
+          //console.log('Image clicked:', this.dataset.index);
             e.stopPropagation();
             openGalleryModal(Number(this.dataset.index));
         });
@@ -332,6 +333,7 @@ renderImages(initialShowCount);
 
 // '더보기' 버튼 클릭 이벤트
 loadMoreBtn.addEventListener('click', () => {
+  //console.log('Load More button clicked');
     const remainingImages = allImageUrls.length - imagesShown;
     renderImages(remainingImages);
 });
