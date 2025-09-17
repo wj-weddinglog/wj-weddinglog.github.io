@@ -41,7 +41,7 @@ function copyLink(){
     var url = 'https://wj-weddinglog.github.io/';
     navigator.clipboard.writeText(url)
         .then(() => {
-            showToast("링크가 복사되었습니다. 널리널리 퍼뜨려주세요💕");
+            showToast("링크가 복사되었습니다.\n널리널리 퍼뜨려주세요💕");
         })
         .catch(err => {
             showToast("계좌 복사 실패: " + err);
@@ -53,7 +53,7 @@ function brideAccountNumber(){
     var bride_account = "1002-843-110250 우리은행";
     navigator.clipboard.writeText(bride_account)
         .then(() => {
-            showToast("신부 계좌번호가 복사되었습니다.\n" + bride_account);
+            showToast("계좌번호가 복사되었습니다.\n" + bride_account);
         })
         .catch(err => {
             showToast("복사 실패: " + err);
@@ -64,7 +64,7 @@ function brideFatherAccountNumber(){
     var bride_father_account = "038701-04-079985 국민은행";
     navigator.clipboard.writeText(bride_father_account)
         .then(() => {
-            showToast("신부 아버님 계좌번호가 복사되었습니다.\n" + bride_father_account);
+            showToast("계좌번호가 복사되었습니다.\n" + bride_father_account);
         })
         .catch(err => {
             showToast("복사 실패: " + err);
@@ -75,7 +75,7 @@ function brideMotherAccountNumber(){
     var bride_mother_account = "243-078544-00107 하나은행";
     navigator.clipboard.writeText(bride_mother_account)
         .then(() => {
-            showToast("신부 어머님 계좌번호가 복사되었습니다.\n" + bride_mother_account);
+            showToast("계좌번호가 복사되었습니다.\n" + bride_mother_account);
         })
         .catch(err => {
             showToast("복사 실패: " + err);
@@ -87,7 +87,7 @@ function groomAccountNumber(){
     var groom_account = "1002-931-309185 우리은행";
     navigator.clipboard.writeText(groom_account)
         .then(() => {
-            showToast("신랑 계좌번호가 복사되었습니다.\n" + groom_account);
+            showToast("계좌번호가 복사되었습니다.\n" + groom_account);
         })
         .catch(err => {
             showToast("복사 실패: " + err);
@@ -98,7 +98,7 @@ function groomsFatherAccountNumber(){
     var groom_account = "1002-931-309185 우리은행";
     navigator.clipboard.writeText(groom_account)
         .then(() => {
-            showToast("신랑 계좌번호가 복사되었습니다.\n" + groom_account);
+            showToast("계좌번호가 복사되었습니다.\n" + groom_account);
         })
         .catch(err => {
             showToast("복사 실패: " + err);
@@ -109,7 +109,7 @@ function groomsMotherAccountNumber(){
     var groom_account = "1002-931-309185 우리은행";
     navigator.clipboard.writeText(groom_account)
         .then(() => {
-            showToast("신랑 계좌번호가 복사되었습니다.\n" + groom_account);
+            showToast("계좌번호가 복사되었습니다.\n" + groom_account);
         })
         .catch(err => {
             showToast("복사 실패: " + err);
