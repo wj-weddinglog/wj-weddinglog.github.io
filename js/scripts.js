@@ -449,3 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 });
 //----- 페이드 함수 끝 -----//
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
