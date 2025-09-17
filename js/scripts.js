@@ -125,8 +125,8 @@ function kakaoShare() {
     Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: '웅🤍수진',
-          description: '2025.11.02\n13시 20분 웨스턴베니비스 신도림',
+          title: '웅🤍수진 결혼합니다💍',
+          description: '2025년 11월 2일 (일) 13시 20분\n위스턴베니비스 신도림',
           imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/link-main.jpg?raw=true',
           link: {
             mobileWebUrl: 'https://wj-weddinglog.github.io',
