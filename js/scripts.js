@@ -127,7 +127,7 @@ function kakaoShare() {
         content: {
           title: '웅🤍수진 결혼합니다💍',
           description: '2025년 11월 2일 (일) 13시 20분\n위스턴베니비스 신도림',
-          imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/link-main.jpg?raw=true',
+          imageUrl: 'https://github.com/wj-weddinglog/wj-weddinglog.github.io/blob/main/assets/img/link-main.jpeg?raw=true',
           link: {
             mobileWebUrl: 'https://wj-weddinglog.github.io',
             webUrl: 'https://wj-weddinglog.github.io',
