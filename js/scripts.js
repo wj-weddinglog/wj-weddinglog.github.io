@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <html lang="ko">
             <head>
                 <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
                 <title>이미지 뷰어</title>
                 <style>
                     body { margin: 0; background-color: #212529; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
@@ -354,26 +354,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     img { max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); user-select: none; -webkit-user-drag: none; }
                     .btn { position: absolute; color: white; cursor: pointer; user-select: none; z-index: 10; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.7); transition: color 0.2s; }
                     .btn:hover { color: #ddd; }
-                    #close-btn { top: 15px; right: 25px; font-size: 2rem; /* 크기 축소 */ }
-                    .nav-btn { top: 50%; transform: translateY(-50%); font-size: 2.5rem; /* 크기 축소 */ padding: 1rem; }
-                    #prev-btn { left: 15px; }
-                    #next-btn { right: 15px; }
+                    #close-btn { top: 15px; right: 25px; font-size: 2rem; }
+                    
+                    /* 네비게이션 영역 스타일 */
+                    #prev-area, #next-area {
+                        position: absolute;
+                        top: 0;
+                        height: 100%;
+                        width: 50%;
+                        z-index: 10;
+                        cursor: pointer;
+                    }
+                    #prev-area { left: 0; }
+                    #next-area { right: 0; }
                 </style>
             </head>
             <body>
                 <span class="btn" id="close-btn">&times;</span>
                 <div id="image-container">
-                    <a class="btn nav-btn" id="prev-btn">&#x2329;</a>
                     <img id="viewer-img" src="" alt="확대 이미지">
-                    <a class="btn nav-btn" id="next-btn">&#x232A;</a>
+                    <div id="prev-area"></div>
+                    <div id="next-area"></div>
                 </div>
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         const imgElement = document.getElementById('viewer-img');
-                        const prevBtn = document.getElementById('prev-btn');
-                        const nextBtn = document.getElementById('next-btn');
                         const closeBtn = document.getElementById('close-btn');
                         const imageContainer = document.getElementById('image-container');
+                        const prevArea = document.getElementById('prev-area');
+                        const nextArea = document.getElementById('next-area');
 
                         if (!window.opener || !window.opener.allImageUrls) {
                             document.body.innerHTML = '<h1>오류: 갤러리 정보에 접근할 수 없습니다.</h1>';
@@ -395,8 +404,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
 
                         // 이벤트 리스너
-                        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
-                        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
+                        prevArea.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
+                        nextArea.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
                         closeBtn.addEventListener('click', () => window.close());
 
                         // 키보드 이벤트
@@ -406,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             else if (e.key === 'Escape') window.close();
                         });
 
-                        // --- 스와이프 기능 추가 ---
+                        // --- 스와이프 기능 ---
                         let touchStartX = 0;
                         imageContainer.addEventListener('touchstart', (e) => {
                             touchStartX = e.touches[0].clientX;
