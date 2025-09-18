@@ -298,123 +298,142 @@ function renderCalendar(year, month, day) {
 
 
 //----- 갤러리 함수 시작 -----//
-const imageCount = 27; // 이미지 개수
-const imageBasePath = "assets/img/gallery/";
-const galleryRow = document.getElementById('gallery-row');
-const loadMoreBtn = document.getElementById('load-more-btn');
-const initialShowCount = 9;
-let imagesShown = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    //----- 갤러리 함수 시작 -----//
+    const imageCount = 27; // 전체 이미지 개수
+    const imageBasePath = "assets/img/gallery/";
+    const galleryRow = document.getElementById('gallery-row');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const initialShowCount = 9; // 처음에 보여줄 이미지 개수
+    let imagesShown = 0;
 
-const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpeg`);
+    // 실제 이미지 경로 대신 플레이스홀더 이미지 사용
+    const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpeg`);
 
-// 함수: 이미지 렌더링
-function renderImages(count) {
-    for (let i = imagesShown; i < imagesShown + count && i < allImageUrls.length; i++) {
-        const img = document.createElement('img');
-        img.src = allImageUrls[i];
-        img.alt = `갤러리 이미지 ${i + 1}`;
-        img.dataset.index = i;
-        img.addEventListener('click', function(e) {
-          //console.log('Image clicked:', this.dataset.index);
-            e.stopPropagation();
-            openGalleryModal(Number(this.dataset.index));
-        });
-        galleryRow.appendChild(img);
+    // 함수: 이미지 렌더링
+    function renderImages(count) {
+        const fragment = document.createDocumentFragment();
+        for (let i = imagesShown; i < imagesShown + count && i < allImageUrls.length; i++) {
+            const img = document.createElement('img');
+            img.src = allImageUrls[i];
+            img.alt = `갤러리 이미지 ${i + 1}`;
+            img.dataset.index = i;
+            img.loading = 'lazy'; // 이미지 지연 로딩
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openGalleryModal(Number(this.dataset.index));
+            });
+            fragment.appendChild(img);
+        }
+        galleryRow.appendChild(fragment);
+        imagesShown += count;
+
+        // 모든 이미지가 로드되면 '더보기' 버튼 숨김
+        if (imagesShown >= allImageUrls.length) {
+            loadMoreBtn.style.display = 'none';
+        }
     }
-    imagesShown += count;
 
-    if (imagesShown >= allImageUrls.length) {
-        loadMoreBtn.style.display = 'none';
+    // 초기 이미지 렌더링
+    renderImages(initialShowCount);
+
+    // '더보기' 버튼 클릭 이벤트
+    loadMoreBtn.addEventListener('click', () => {
+        const remainingImages = allImageUrls.length - imagesShown;
+        renderImages(Math.min(remainingImages, 9)); // 9개씩 더 불러오기
+    });
+
+    // --- 수정된 모달 관련 스크립트 ---
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('gallery-modal-img');
+    const closeBtn = document.getElementById('gallery-close');
+    const prevBtn = document.getElementById('gallery-prev');
+    const nextBtn = document.getElementById('gallery-next');
+    let currentModalIndex = 0;
+
+    // 모달 열기 함수
+    function openGalleryModal(idx) {
+        currentModalIndex = idx;
+        showModalImage(currentModalIndex);
+        modal.classList.add('active');
+        document.body.classList.add('modal-open'); // body 스크롤 막기
     }
-}
 
-// 초기 이미지 렌더링
-renderImages(initialShowCount);
-
-// '더보기' 버튼 클릭 이벤트
-loadMoreBtn.addEventListener('click', () => {
-  //console.log('Load More button clicked');
-    const remainingImages = allImageUrls.length - imagesShown;
-    renderImages(remainingImages);
-});
-
-// 플로팅 갤러리 모달
-const modal = document.getElementById('gallery-modal');
-const modalImg = document.getElementById('gallery-modal-img');
-const closeBtn = document.getElementById('gallery-close');
-const prevBtn = document.getElementById('gallery-prev');
-const nextBtn = document.getElementById('gallery-next');
-let currentModalIndex = 0;
-let startX = 0;
-
-function openGalleryModal(idx) {
-    currentModalIndex = idx;
-    showModalImage(currentModalIndex);
-    modal.classList.add('active');
-}
-
-function closeGalleryModal() {
-    modal.classList.remove('active');
-}
-
-function showModalImage(idx) {
-    if (idx < 0) {
-        idx = imageCount - 1;
+    // 모달 닫기 함수
+    function closeGalleryModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open'); // body 스크롤 허용
     }
-    if (idx >= imageCount) {
-        idx = 0;
+
+    // 모달에 이미지 표시 함수
+    function showModalImage(idx) {
+        // 인덱스 순환 로직
+        if (idx < 0) {
+            idx = allImageUrls.length - 1;
+        } else if (idx >= allImageUrls.length) {
+            idx = 0;
+        }
+        currentModalIndex = idx;
+        modalImg.src = allImageUrls[idx];
+        modalImg.alt = `갤러리 이미지 ${idx + 1}`;
     }
-    currentModalIndex = idx;
-    modalImg.src = allImageUrls[idx];
-    modalImg.alt = `갤러리 이미지 ${idx + 1}`;
-}
 
-prevBtn.onclick = function(e) {
-    e.stopPropagation();
-    showModalImage(currentModalIndex - 1);
-};
-
-nextBtn.onclick = function(e) {
-    e.stopPropagation();
-    showModalImage(currentModalIndex + 1);
-};
-
-closeBtn.onclick = function(e) {
-    e.stopPropagation();
-    closeGalleryModal();
-};
-
-// 모달 닫기 이벤트 (배경 클릭 시)
-modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-        closeGalleryModal();
-    }
-});
-
-// 터치 스와이프 기능 추가
-let touchStartX = 0;
-modal.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-});
-
-modal.addEventListener('touchend', (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const deltaX = endX - touchStartX;
-    if (deltaX > 50) { // 오른쪽으로 스와이프
+    // 이전 버튼 클릭
+    prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // 이벤트 버블링 방지
         showModalImage(currentModalIndex - 1);
-    } else if (deltaX < -50) { // 왼쪽으로 스와이프
+    });
+
+    // 다음 버튼 클릭
+    nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
         showModalImage(currentModalIndex + 1);
-    }
+    });
+
+    // 닫기 버튼 클릭
+    closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeGalleryModal();
+    });
+
+    // 모달 배경 클릭 시 닫기 (이미지나 버튼 제외)
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeGalleryModal();
+        }
+    });
+
+    // 터치 스와이프 기능
+    let touchStartX = 0;
+    modalImg.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    modalImg.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = endX - touchStartX;
+        if (deltaX > 50) { // 오른쪽으로 스와이프
+            showModalImage(currentModalIndex - 1);
+        } else if (deltaX < -50) { // 왼쪽으로 스와이프
+            showModalImage(currentModalIndex + 1);
+        }
+    });
+
+    // 키보드 이벤트 (좌우 화살표, ESC)
+    document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('active')) return;
+        
+        if (e.key === 'ArrowLeft') {
+            showModalImage(currentModalIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            showModalImage(currentModalIndex + 1);
+        } else if (e.key === 'Escape') {
+            closeGalleryModal();
+        }
+    });
+    //----- 갤러리 함수 끝 -----//
 });
 
-// 키보드 이벤트
-document.addEventListener('keydown', function(e) {
-    if (!modal.classList.contains('active')) return;
-    if (e.key === 'ArrowLeft') showModalImage(currentModalIndex - 1);
-    if (e.key === 'ArrowRight') showModalImage(currentModalIndex + 1);
-    if (e.key === 'Escape') closeGalleryModal();
-});
-//----- 갤러리 함수 끝 -----//
 
 //----- 페이드 함수 시작 -----//
 document.addEventListener('DOMContentLoaded', () => {
