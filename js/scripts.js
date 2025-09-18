@@ -435,6 +435,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         showImage(currentIndex);
                     });
+                    //----- 더블터치 금지 -----//
+                    document.addEventListener('touchstart', function(event) {
+                    if (event.touches.length > 1) {
+                        event.preventDefault();
+                    }
+                    }, { passive: false });
+                    //----- 더블터치 금지 -----//
                 <\/script>
             </body>
             </html>
