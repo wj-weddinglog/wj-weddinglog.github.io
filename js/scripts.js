@@ -313,9 +313,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.allImageUrls = allImageUrls;
 
     // 함수: 이미지 렌더링
-    function renderImages(count) {
+    function renderAllImages() {
         const fragment = document.createDocumentFragment();
-        for (let i = imagesShown; i < imagesShown + count && i < allImageUrls.length; i++) {
+        for (let i = 0; i < allImageUrls.length; i++) {
             const img = document.createElement('img');
             img.src = allImageUrls[i];
             img.alt = `갤러리 이미지 ${i + 1}`;
@@ -329,22 +329,10 @@ document.addEventListener('DOMContentLoaded', function() {
             fragment.appendChild(img);
         }
         galleryRow.appendChild(fragment);
-        imagesShown += count;
-
-        // 모든 이미지가 로드되면 '더보기' 버튼 숨김
-        if (imagesShown >= allImageUrls.length) {
-            loadMoreBtn.style.display = 'none';
-        }
     }
 
-    // 초기 이미지 렌더링
-    renderImages(initialShowCount);
-
-    // '더보기' 버튼 클릭 이벤트
-    loadMoreBtn.addEventListener('click', () => {
-        const remainingImages = allImageUrls.length - imagesShown;
-        renderImages(Math.min(remainingImages, 9)); // 9개씩 더 불러오기
-    });
+    // 모든 이미지 렌더링
+    renderAllImages();
 
     // --- 새 창으로 이미지 보기 스크립트 ---
     function openImageInNewWindow(idx) {
