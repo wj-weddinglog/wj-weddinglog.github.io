@@ -334,9 +334,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 모든 이미지 렌더링
     renderAllImages();
 
-    // --- 새 창으로 이미지 보기 스크립트 ---
+    // --- 새 창으로 이미지 보기 스크립트 (모바일 호환성 개선) ---
     function openImageInNewWindow(idx) {
-        const viewerWindow = window.open('', '_blank', 'width=1024,height=768,resizable=yes,scrollbars=yes');
+        // 고정된 창 크기를 제거하여 모바일 환경에 맞게 유연하게 조정되도록 함
+        const viewerWindow = window.open('', '_blank', 'resizable=yes,scrollbars=yes');
         
         if (!viewerWindow) {
             alert('팝업이 차단되었습니다. 팝업을 허용해주세요.');
@@ -348,11 +349,12 @@ document.addEventListener('DOMContentLoaded', function() {
             <html lang="ko">
             <head>
                 <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>이미지 뷰어</title>
                 <style>
                     body { margin: 0; background-color: #212529; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
                     #image-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
-                    img { max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+                    img { max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); user-select: none; -webkit-user-drag: none; }
                     .btn { position: absolute; color: white; cursor: pointer; user-select: none; z-index: 10; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.7); transition: transform 0.2s, color 0.2s; }
                     .btn:hover { color: #ddd; transform: scale(1.1); }
                     #close-btn { top: 15px; right: 25px; font-size: 2.5rem; }
@@ -374,6 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const prevBtn = document.getElementById('prev-btn');
                         const nextBtn = document.getElementById('next-btn');
                         const closeBtn = document.getElementById('close-btn');
+                        const imageContainer = document.getElementById('image-container');
 
                         if (!window.opener || !window.opener.allImageUrls) {
                             document.body.innerHTML = '<h1>오류: 갤러리 정보에 접근할 수 없습니다.</h1>';
@@ -394,15 +397,35 @@ document.addEventListener('DOMContentLoaded', function() {
                             document.title = \`이미지 \${currentIndex + 1} / \${allImageUrls.length}\`;
                         }
 
+                        // 이벤트 리스너
                         prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
                         nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
                         closeBtn.addEventListener('click', () => window.close());
 
+                        // 키보드 이벤트
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
                             else if (e.key === 'ArrowRight') showImage(currentIndex + 1);
                             else if (e.key === 'Escape') window.close();
                         });
+
+                        // --- 스와이프 기능 추가 ---
+                        let touchStartX = 0;
+                        imageContainer.addEventListener('touchstart', (e) => {
+                            touchStartX = e.touches[0].clientX;
+                        }, { passive: true });
+
+                        imageContainer.addEventListener('touchend', (e) => {
+                            const touchEndX = e.changedTouches[0].clientX;
+                            const deltaX = touchEndX - touchStartX;
+
+                            if (deltaX > 50) { // 오른쪽으로 스와이프
+                                showImage(currentIndex - 1);
+                            } else if (deltaX < -50) { // 왼쪽으로 스와이프
+                                showImage(currentIndex + 1);
+                            }
+                        }, { passive: true });
+
 
                         showImage(currentIndex);
                     });
