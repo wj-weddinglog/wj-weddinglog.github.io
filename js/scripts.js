@@ -303,9 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageCount = 27; // 전체 이미지 개수
     const imageBasePath = "assets/img/gallery/";
     const galleryRow = document.getElementById('gallery-row');
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    const initialShowCount = 9; // 처음에 보여줄 이미지 개수
-    let imagesShown = 0;
 
     // 실제 이미지 경로 대신 플레이스홀더 이미지 사용
     const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpeg`);
@@ -355,10 +352,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     body { margin: 0; background-color: #212529; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
                     #image-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
                     img { max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); user-select: none; -webkit-user-drag: none; }
-                    .btn { position: absolute; color: white; cursor: pointer; user-select: none; z-index: 10; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.7); transition: transform 0.2s, color 0.2s; }
-                    .btn:hover { color: #ddd; transform: scale(1.1); }
-                    #close-btn { top: 15px; right: 25px; font-size: 2.5rem; }
-                    .nav-btn { top: 50%; transform: translateY(-50%); font-size: 3rem; padding: 1rem; }
+                    .btn { position: absolute; color: white; cursor: pointer; user-select: none; z-index: 10; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.7); transition: color 0.2s; }
+                    .btn:hover { color: #ddd; }
+                    #close-btn { top: 15px; right: 25px; font-size: 2rem; /* 크기 축소 */ }
+                    .nav-btn { top: 50%; transform: translateY(-50%); font-size: 2.5rem; /* 크기 축소 */ padding: 1rem; }
                     #prev-btn { left: 15px; }
                     #next-btn { right: 15px; }
                 </style>
