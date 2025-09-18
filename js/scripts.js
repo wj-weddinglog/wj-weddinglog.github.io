@@ -305,7 +305,7 @@ const loadMoreBtn = document.getElementById('load-more-btn');
 const initialShowCount = 9;
 let imagesShown = 0;
 
-const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpg`);
+const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpeg`);
 
 // 함수: 이미지 렌더링
 function renderImages(count) {
