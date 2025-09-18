@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     img { max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); user-select: none; -webkit-user-drag: none; }
                     .btn { position: absolute; color: white; cursor: pointer; user-select: none; z-index: 10; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.7); transition: color 0.2s; }
                     .btn:hover { color: #ddd; }
-                    #close-btn { top: 15px; right: 25px; font-size: 2rem; }
+                    #close-btn { top: 15px; right: 25px; font-size: 2rem; z-index: 11; /* 수정: z-index를 높여 최상단에 표시 */ }
                     
                     /* 네비게이션 영역 스타일 */
                     #prev-area, #next-area {
