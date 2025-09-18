@@ -309,6 +309,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 실제 이미지 경로 대신 플레이스홀더 이미지 사용
     const allImageUrls = Array.from({ length: imageCount }, (_, i) => `${imageBasePath}${i + 1}.jpeg`);
+    // 새 창에서 접근할 수 있도록 window 객체에 할당
+    window.allImageUrls = allImageUrls;
 
     // 함수: 이미지 렌더링
     function renderImages(count) {
@@ -321,7 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
             img.loading = 'lazy'; // 이미지 지연 로딩
             img.addEventListener('click', function(e) {
                 e.stopPropagation();
-                openGalleryModal(Number(this.dataset.index));
+                // 새 창으로 이미지를 여는 함수 호출
+                openImageInNewWindow(Number(this.dataset.index));
             });
             fragment.appendChild(img);
         }
@@ -343,94 +346,87 @@ document.addEventListener('DOMContentLoaded', function() {
         renderImages(Math.min(remainingImages, 9)); // 9개씩 더 불러오기
     });
 
-    // --- 수정된 모달 관련 스크립트 ---
-    const modal = document.getElementById('gallery-modal');
-    const modalImg = document.getElementById('gallery-modal-img');
-    const closeBtn = document.getElementById('gallery-close');
-    const prevBtn = document.getElementById('gallery-prev');
-    const nextBtn = document.getElementById('gallery-next');
-    let currentModalIndex = 0;
-
-    // 모달 열기 함수
-    function openGalleryModal(idx) {
-        currentModalIndex = idx;
-        showModalImage(currentModalIndex);
-        modal.classList.add('active');
-        document.body.classList.add('modal-open'); // body 스크롤 막기
-    }
-
-    // 모달 닫기 함수
-    function closeGalleryModal() {
-        modal.classList.remove('active');
-        document.body.classList.remove('modal-open'); // body 스크롤 허용
-    }
-
-    // 모달에 이미지 표시 함수
-    function showModalImage(idx) {
-        // 인덱스 순환 로직
-        if (idx < 0) {
-            idx = allImageUrls.length - 1;
-        } else if (idx >= allImageUrls.length) {
-            idx = 0;
-        }
-        currentModalIndex = idx;
-        modalImg.src = allImageUrls[idx];
-        modalImg.alt = `갤러리 이미지 ${idx + 1}`;
-    }
-
-    // 이전 버튼 클릭
-    prevBtn.addEventListener('click', function(e) {
-        e.stopPropagation(); // 이벤트 버블링 방지
-        showModalImage(currentModalIndex - 1);
-    });
-
-    // 다음 버튼 클릭
-    nextBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        showModalImage(currentModalIndex + 1);
-    });
-
-    // 닫기 버튼 클릭
-    closeBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        closeGalleryModal();
-    });
-
-    // 모달 배경 클릭 시 닫기 (이미지나 버튼 제외)
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeGalleryModal();
-        }
-    });
-
-    // 터치 스와이프 기능
-    let touchStartX = 0;
-    modalImg.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    modalImg.addEventListener('touchend', (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const deltaX = endX - touchStartX;
-        if (deltaX > 50) { // 오른쪽으로 스와이프
-            showModalImage(currentModalIndex - 1);
-        } else if (deltaX < -50) { // 왼쪽으로 스와이프
-            showModalImage(currentModalIndex + 1);
-        }
-    });
-
-    // 키보드 이벤트 (좌우 화살표, ESC)
-    document.addEventListener('keydown', function(e) {
-        if (!modal.classList.contains('active')) return;
+    // --- 새 창으로 이미지 보기 스크립트 ---
+    function openImageInNewWindow(idx) {
+        const viewerWindow = window.open('', '_blank', 'width=1024,height=768,resizable=yes,scrollbars=yes');
         
-        if (e.key === 'ArrowLeft') {
-            showModalImage(currentModalIndex - 1);
-        } else if (e.key === 'ArrowRight') {
-            showModalImage(currentModalIndex + 1);
-        } else if (e.key === 'Escape') {
-            closeGalleryModal();
+        if (!viewerWindow) {
+            alert('팝업이 차단되었습니다. 팝업을 허용해주세요.');
+            return;
         }
-    });
+
+        const viewerHTML = `
+            <!DOCTYPE html>
+            <html lang="ko">
+            <head>
+                <meta charset="UTF-8">
+                <title>이미지 뷰어</title>
+                <style>
+                    body { margin: 0; background-color: #212529; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+                    #image-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+                    img { max-width: 95vw; max-height: 95vh; object-fit: contain; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+                    .btn { position: absolute; color: white; cursor: pointer; user-select: none; z-index: 10; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.7); transition: transform 0.2s, color 0.2s; }
+                    .btn:hover { color: #ddd; transform: scale(1.1); }
+                    #close-btn { top: 15px; right: 25px; font-size: 2.5rem; }
+                    .nav-btn { top: 50%; transform: translateY(-50%); font-size: 3rem; padding: 1rem; }
+                    #prev-btn { left: 15px; }
+                    #next-btn { right: 15px; }
+                </style>
+            </head>
+            <body>
+                <span class="btn" id="close-btn">&times;</span>
+                <div id="image-container">
+                    <a class="btn nav-btn" id="prev-btn">&#x2329;</a>
+                    <img id="viewer-img" src="" alt="확대 이미지">
+                    <a class="btn nav-btn" id="next-btn">&#x232A;</a>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const imgElement = document.getElementById('viewer-img');
+                        const prevBtn = document.getElementById('prev-btn');
+                        const nextBtn = document.getElementById('next-btn');
+                        const closeBtn = document.getElementById('close-btn');
+
+                        if (!window.opener || !window.opener.allImageUrls) {
+                            document.body.innerHTML = '<h1>오류: 갤러리 정보에 접근할 수 없습니다.</h1>';
+                            return;
+                        }
+
+                        const allImageUrls = window.opener.allImageUrls;
+                        let currentIndex = ${idx};
+
+                        function showImage(index) {
+                            if (index < 0) {
+                                index = allImageUrls.length - 1;
+                            } else if (index >= allImageUrls.length) {
+                                index = 0;
+                            }
+                            currentIndex = index;
+                            imgElement.src = allImageUrls[currentIndex];
+                            document.title = \`이미지 \${currentIndex + 1} / \${allImageUrls.length}\`;
+                        }
+
+                        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
+                        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
+                        closeBtn.addEventListener('click', () => window.close());
+
+                        document.addEventListener('keydown', function(e) {
+                            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+                            else if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+                            else if (e.key === 'Escape') window.close();
+                        });
+
+                        showImage(currentIndex);
+                    });
+                <\/script>
+            </body>
+            </html>
+        `;
+        
+        viewerWindow.document.open();
+        viewerWindow.document.write(viewerHTML);
+        viewerWindow.document.close();
+    }
     //----- 갤러리 함수 끝 -----//
 });
 

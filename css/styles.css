@@ -11371,12 +11371,6 @@ a.no-style {
 }
 /* 달력&디데이 끝*/
 
-
-/* 모달이 활성화되었을 때 배경 스크롤을 막기 위한 스타일 */
-body.modal-open {
-    overflow: hidden;
-}
-
 /* ///// 갤러리 시작 ///// */
 .gallery-row {
     display: grid;
@@ -11419,91 +11413,6 @@ body.modal-open {
 .load-more-btn:hover {
     background-color: #2d3748; /* 더 어두운 회색 */
     transform: translateY(-2px);
-}
-
-/* --- 수정된 모달 스타일 --- */
-.gallery-modal {
-    display: none; /* 기본적으로 숨김 */
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9); /* 배경을 더 어둡게 */
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-modal.active {
-    display: flex; /* 활성화 시 flex로 표시 */
-    opacity: 1;
-}
-
-.gallery-modal-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem; /* 이미지와 화면 가장자리 사이의 여백 */
-    box-sizing: border-box;
-}
-
-/* 모달 이미지 스타일 */
-#gallery-modal-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* 이미지가 잘리지 않고 비율에 맞게 표시 */
-    border-radius: 8px;
-}
-
-/* 닫기 버튼 */
-.gallery-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    z-index: 1002;
-    transition: transform 0.2s, color 0.2s;
-}
-.gallery-close:hover {
-    color: #ccc;
-    transform: scale(1.1);
-}
-
-/* 이전/다음 버튼 */
-.gallery-prev, .gallery-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2.5rem;
-    color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
-    user-select: none;
-    padding: 1rem;
-    z-index: 1002;
-    transition: color 0.2s, transform 0.2s;
-    background: none;
-    border-radius: 0;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-}
-
-.gallery-prev { left: 1.5rem; }
-.gallery-next { right: 1.5rem; }
-
-.gallery-prev:hover, .gallery-next:hover {
-    color: white;
-    background: none;
-    transform: translateY(-50%) scale(1.1);
 }
 /* ///// 갤러리 끝 ///// */
 
