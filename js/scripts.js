@@ -116,6 +116,19 @@ function groomsMotherAccountNumber(){
         });
 }
 
+function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const icon = document.getElementById(id.replace('-content', '-icon'));
+    
+    if (content.style.display === 'block') {
+        content.style.display = 'none';
+        icon.classList.remove('rotate-180');
+    } else {
+        content.style.display = 'block';
+        icon.classList.add('rotate-180');
+    }
+}
+
 // 카카오톡 공유하기
 function kakaoShare() {
     Kakao.init('ad4dbad813285bef96fa2897dcc23fae');

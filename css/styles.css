@@ -11413,3 +11413,33 @@ a.no-style {
 .fixed-size-image {
   width: 80%; /* 원하는 가로 크기 */
 }
+
+/* ///// 마음 전하시는 곳 ///// */
+.card {
+    border: 1px solid #d4c8c0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.card-header {
+    cursor: pointer;
+    padding: 16px;
+    transition: background-color 0.2s;
+}
+.card-header:hover {
+    background-color: #f0eae7;
+}
+.card-content {
+    display: none;
+    padding: 16px;
+    border-top: 1px solid #d4c8c0;
+}
+.card-content.show {
+    display: block;
+}
+.copy-button {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.copy-button:hover {
+    color: #5a4b40;
+}

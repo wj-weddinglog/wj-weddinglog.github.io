@@ -41,7 +41,7 @@
         <!-- Header-->
         <header class="fade-in row d-flex align-items-center">
             <div class="container px-4 px-lg-5 text-center">
-                <p style="font-family: 'Amatic SC', sans-serif; color: black; font-weight: bold; font-size: 40px">Woong & Sujin</p>
+                <p style="font-family: 'Amatic SC', sans-serif; color: black; font-weight: bold; font-size: 36px; line-height: 90%;">Woong & Sujin</p>
             </div>
             <div class="container px-4 px-lg-5 text-center masthead"></div>
             <div class="container px-4 px-lg-5 text-center">
@@ -136,12 +136,12 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-6 col-lg-6 col-md-6 col-sm-6 mb-5 mb-lg-0">
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;">정재환 노해숙의 장남</p>
-                        <p style="font-family: 'Gowun Dodum', serif; font-size: 22px;">신랑 정&nbsp;웅🤵🏻♂️</p>
+                        <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">신랑 정&nbsp;웅🤵🏻♂️</p>
                         <img src="assets/img/profile/woong.jpeg" class="img-fluid rounded-circle" alt="신랑 이미지">
                     </div>
                     <div class="col-6 col-lg-6 col-md-6 col-sm-6 mb-5 mb-lg-0">
                         <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;">최상순 윤인숙의 장녀</p>
-                        <p style="font-family: 'Gowun Dodum', serif; font-size: 22px;">신부 최수진👰🏻‍♀️♀️</p>
+                        <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">신부 최수진👰🏻‍♀️♀️</p>
                         <img src="assets/img/profile/sujin.jpeg" class="img-fluid rounded-circle" alt="신부 이미지">
                     </div>
                 </div>
@@ -161,66 +161,98 @@
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- New Contact -->
         <section id="parents" class="fade-in content-section">
-            <div class="container px-4 px-lg-5 text-center">
-                <div class="content-section-heading">
+            <div class="container px-4 px-lg-5">
+                <div class=" text-center">
                     <p style="font-family: 'Gowun Dodum', serif; font-size: 24px; font-weight: bold;">마음 전해주실 곳</p>
+                    <p class="font-family: 'Gowun Dodum', serif; font-size: 20px">축하의 마음을 담아 축의금을 전달해 보세요.<br>복사 아이콘을 클릭해 계좌번호를 복사할 수 있습니다.</p>
                 </div>
-                <br>
-                <div class="row gx-4 gx-lg-5">
-                    <!-- 신랑측 -->
-                    <div class="col-6 col-lg-6 col-md-6 mb-5 mb-lg-0">
-                        <div class="text-center">
-                            <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">신랑 측</p>
-                        </div>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a class="social-link rounded-circle mr-3" href="tel:01064506850"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="social-link rounded-circle mr-3" onclick="groomAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                            </li>
-                        </ul>
-                        <div id="foldableSection">
-                            <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;" class="toggle-button text-black" onclick="toggleFoldable()">혼주 연락처 펼쳐보기<span id="toggleIcon">▼</span></p>
-                            <div class="foldable-content">
-                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">정재환&nbsp;&nbsp;&nbsp;
-                                    <a href="tel:01091847076"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a href="sms:01091847076"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a onclick="groomsFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </p>
-                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">노해숙&nbsp;&nbsp;&nbsp;
-                                    <a href="tel:01032797076"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a href="sms:01032797076"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a onclick="groomsMotherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </p>
-                            </div>
+
+                <!-- 신랑 측 -->
+                <div class="card rounded-lg shadow-sm mb-6 bg-white">
+                    <!-- 신랑 -->
+                    <div class="card-header flex justify-between items-center" onclick="toggleAccordion('groom-content')">
+                        <div class="flex items-left space-x-4">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">신랑 정웅</span>
+                            <i id="groom-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
                         </div>
                     </div>
-                    <!-- 신부측 -->
-                    <div class="col-6 col-lg-6 col-md-6 mb-5 mb-lg-0">
-                        <div class="text-center">
-                            <p style="font-family: 'Gowun Dodum', serif; font-size: 20px;">신부 측</p>
+                    <div id="groom-content" class="card-content">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">1002-931-309185 우리은행</span>
+                            <a class="rounded-circle" onclick="groomAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></li>
                         </div>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a class="social-link rounded-circle mr-5" href="tel:01095100592"><i class="fa-solid fa-phone"></i></a></li>
-                            <li class="list-inline-item"><a class="social-link rounded-circle mr-5" onclick="brideAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></li>
-                        </ul>
-                        <div id="foldableSection">
-                            <p style="font-family: 'Gowun Dodum', serif; font-size: 16px;" class="toggle-button text-black" onclick="toggleFoldable2()">혼주 연락처 펼쳐보기<span id="toggleIcon2">▼</span></p>
-                            <div class="foldable-content2">
-                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">최상순&nbsp;&nbsp;&nbsp;
-                                    <a href="tel:01088620592"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a href="sms:01088620592"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a onclick="brideFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </p>
-                                <p style="font-family: 'Gowun Dodum', serif; font-size: 15px;">윤인숙&nbsp;&nbsp;&nbsp;
-                                    <a href="tel:01091100592"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a href="sms:01091100592"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;
-                                    <a onclick="brideMotherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </p>  
-                            </div>
+                    </div>
+
+                    <!-- 신랑 혼주 -->
+                    <div class="card-header flex justify-between items-center border-t border-gray-200" onclick="toggleAccordion('groom-father-content')">
+                        <div class="flex items-center space-x-4">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">혼주 정재환</span>
+                            <i id="groom-father-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                        </div>
+                    </div>
+                    <div id="groom-father-content" class="card-content">
+                        <div class="flex items-center justify-between">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">1002-931-309185 우리은행</span>
+                            <a onclick="groomsFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card-header flex justify-between items-center border-t border-gray-200" onclick="toggleAccordion('groom-mother-content')">
+                        <div class="flex items-center space-x-4">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">혼주 노해숙</span>
+                       <i id="groom-mother-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                        </div>
+                    </div>
+                    <div id="groom-mother-content" class="card-content">
+                        <div class="flex items-center justify-between">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">1002-931-309185 우리은행</span>
+                            <a onclick="groomsMotherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- 신부 측 -->
+                <div class="card rounded-lg shadow-sm bg-white">
+                    <!-- 신부 -->
+                    <div class="card-header flex justify-between items-center" onclick="toggleAccordion('bride-content')">
+                        <div class="flex items-center space-x-4">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">신부 최수진</span>
+                            <i id="bride-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                        </div>
+                    </div>
+                    <div id="bride-content" class="card-content">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">1002-843-110250 우리은행</span>
+                            <a class="rounded-circle" onclick="brideAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></li>
+                        </div>
+                    </div>
+
+                    <!-- 신부 혼주 -->
+                    <div class="card-header flex justify-between items-center border-t border-gray-200" onclick="toggleAccordion('bride-father-content')">
+                        <div class="flex items-center space-x-4">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">혼주 최상순</span>
+                            <i id="bride-father-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                        </div>
+                    </div>
+                    <div id="bride-father-content" class="card-content">
+                        <div class="flex items-center justify-between">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">038701-04-079985 국민은행</span>
+                            <a onclick="brideFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card-header flex justify-between items-center border-t border-gray-200" onclick="toggleAccordion('bride-mother-content')">
+                        <div class="flex items-center space-x-4">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">혼주 윤인숙</span>
+                            <i id="bride-mother-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200"></i>
+                        </div>
+                    </div>
+                    <div id="bride-mother-content" class="card-content">
+                        <div class="flex items-center justify-between">
+                            <span class="font-family: 'Gowun Dodum', serif; font-size: 20px;">243-078544-00107 하나은행</span>
+                            <a onclick="brideMotherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
                         </div>
                     </div>
                 </div>
@@ -309,13 +341,13 @@
                     <li class="list-inline-item">
                         <a class="social-link rounded-circle mr-5" title="카카오톡으로 공유하기" href="javascript:kakaoShare()">
                             <i class="fa fa-share-alt" aria-hidden="true"></i>
-                            <p style="font-family: 'Gowun Dodum', serif; font-size: 10px; line-height: 90%; color: #1D809F">카카오톡</p>
+                            <p style="font-family: 'Gowun Dodum', serif; font-size: 12px; line-height: 90%; color: #1D809F">카카오톡</p>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a class="social-link rounded-circle mr-5" title="링크 복사하기" onclick="copyLink(); return false;">
                             <i class="fa fa-link" aria-hidden="true"></i>
-                            <p style="font-family: 'Gowun Dodum', serif; font-size: 10px; line-height: 90%; color: #1D809F">링크복사</p>
+                            <p style="font-family: 'Gowun Dodum', serif; font-size: 12px; line-height: 90%; color: #1D809F">링크복사</p>
                         </a>
                     </li>
                 </ul>
