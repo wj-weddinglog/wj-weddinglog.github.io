@@ -504,9 +504,10 @@ document.addEventListener('DOMContentLoaded', () => {
 //----- 페이드 함수 끝 -----//
 
 document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
+  if (e.target.tagName === 'IMG') {
+    e.preventDefault();
+  }
 });
-
 
 //----- 더블터치 금지 -----//
 document.addEventListener('touchstart', function(event) {
