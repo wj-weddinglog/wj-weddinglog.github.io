@@ -336,6 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 새 창으로 이미지를 여는 함수 호출
                 openImageInNewWindow(Number(this.dataset.index));
             });
+            img.ondragstart = 'return false;';
             fragment.appendChild(img);
         }
         galleryRow.appendChild(fragment);
